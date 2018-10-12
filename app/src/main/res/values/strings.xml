@@ -2,6 +2,11 @@
     <string name="app_name">TatsuyaYamaguchi</string>
     <string name="title_activity_u_01">Sign in</string>
 
+    <string name="entry">新規登録</string>
+    <string name="meil">メールアドレスを入力</string>
+    <string name="passeord">パスワードを入力</string>
+    <string name="decide">決定</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
