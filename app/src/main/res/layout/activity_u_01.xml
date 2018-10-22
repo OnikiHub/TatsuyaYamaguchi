@@ -14,6 +14,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/entry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,19 +33,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="@string/meil" />
+            android:hint="@string/meil"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
-            android:text="@string/passeord" />
+            android:hint="@string/passeord"
+            android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/logincheck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/decide" />
