@@ -11,8 +11,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         ias
-                unko
-                
+                unkowwwwww
+
 /*<<<<<<< HEAD
         setContentView(R.layout.activity_main);kk
 =======
