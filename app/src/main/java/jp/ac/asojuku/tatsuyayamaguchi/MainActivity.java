@@ -10,9 +10,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+<<<<<<<<< Temporary merge branch 1
         ias
-                unko
+                unkowwwwww
+
+=========
+
                 
+>>>>>>>>> Temporary merge branch 2
 /*<<<<<<< HEAD
         setContentView(R.layout.activity_main);kk
 =======
