@@ -10,7 +10,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        ias
+                unko
                 
 /*<<<<<<< HEAD
         setContentView(R.layout.activity_main);kk
