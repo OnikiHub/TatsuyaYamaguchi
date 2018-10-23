@@ -10,9 +10,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+<<<<<<< HEAD
         ias
                 unko
                 
+=======
+        unkoっっっっっw
+>>>>>>> af1b0c9... っっっっっk
 /*<<<<<<< HEAD
         setContentView(R.layout.activity_main);kk
 =======
@@ -40,3 +44,6 @@ public class MainActivity extends AppCompatActivity {
     jnljbugyhiuhij
 }
 
+
+//オレマジすこまじ
+// 兄貴の好きなケジメです
