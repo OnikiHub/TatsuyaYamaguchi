@@ -10,27 +10,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        unko
-/*<<<<<<< HEAD
-        setContentView(R.layout.activity_main);kk
-=======
-        setContentView(R.layout.activity_u_01);
-       *//* if (logincheck()) {
-            Intent intent = new Intent(getApplicationContext(), U_08.class);
-            startActivity(intent);
-        }else{
-            Intent intent = new Intent(getApplicationContext(), U_02.class);
-            startActivity(intent);
-        }
-    }
-    public Boolean logincheck(){
-        SharedPreferences settings = getSharedPreferences(PREFERENCES_FILE_NAME, 0);
-        if(settings == null) return false;
-        int login = (int) settings.getLong("logged-in", 0);
-        if(login == 1) return true;
-        else return false;
-    *//*
->>>>>>> ログイン画面*/
+
+
         startActionMode("kiki");
     }
 }
