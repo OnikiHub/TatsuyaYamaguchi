@@ -1,7 +1,7 @@
 package jp.ac.asojuku.tatsuyayamaguchi;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
 
 public class U_13 extends AppCompatActivity {
 

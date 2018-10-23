@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         else return false;
     *//*
 >>>>>>> ログイン画面*/
+        startActionMode("kiki");
     }
 }
 
