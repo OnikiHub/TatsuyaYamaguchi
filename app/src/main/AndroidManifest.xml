@@ -38,7 +38,8 @@
         <activity android:name=".U_15" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+        <activity android:name=".M_10"></activity>
     </application>
 
 </manifest>
