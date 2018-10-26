@@ -10,9 +10,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+<<<<<<<<< Temporary merge branch 1
+        ias
+                unkowwwwww
 
-       /* setContentView(R.layout.activity_u_01);
-        if (logincheck()) {
+
+                松尾は黒確
+
+=========
+
+                
+>>>>>>>>> Temporary merge branch 2
+/*<<<<<<< HEAD
+        setContentView(R.layout.activity_main);kk
+=======
+        setContentView(R.layout.activity_u_01);
+       *//* if (logincheck()) {
             Intent intent = new Intent(getApplicationContext(), U_08.class);
             startActivity(intent);
         }else{
@@ -26,9 +39,13 @@ public class MainActivity extends AppCompatActivity {
         int login = (int) settings.getLong("logged-in", 0);
         if(login == 1) return true;
         else return false;
-
-ログイン画面
+    *//*
+>>>>>>> ログイン画面*/
         startActionMode("kiki");
     }
-/*
 
+
+
+}
+
+netabaresunnnagaiji
