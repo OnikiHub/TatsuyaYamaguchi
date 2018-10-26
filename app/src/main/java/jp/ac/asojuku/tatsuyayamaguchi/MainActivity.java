@@ -12,10 +12,6 @@ public class MainActivity extends AppCompatActivity {
 
 <<<<<<<<< Temporary merge branch 1
         ias
-                unkowwwwww
-
-
-                松尾は黒確
 
 =========
 
@@ -48,4 +44,3 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-netabaresunnnagaiji
