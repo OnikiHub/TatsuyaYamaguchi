@@ -16,6 +16,8 @@ package jp.ac.asojuku.tatsuyayamaguchi;
 public class U_13 extends AppCompatActivity {
     private List<ImageButton>btlist,
 
+    for(btlist <= null)
+
 
         setContentView(R.layout.activity_u_13);
         try{
