@@ -37,9 +37,6 @@
         <activity android:name=".U_13" />
         <activity android:name=".U_14" />
         <activity android:name=".U_15" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
         <activity android:name=".M_10"></activity>
     </application>
 

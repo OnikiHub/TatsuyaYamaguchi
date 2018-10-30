@@ -31,7 +31,7 @@ public class U_13 extends AppCompatActivity {
                 stmt.close();
                 con.close();
             }catch (Exception e){
-            
+
         }
     }
 }
