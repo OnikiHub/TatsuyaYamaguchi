@@ -14,26 +14,32 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import java.util.List;
 
 public class U_13 extends AppCompatActivity {
-    private List<ImageButton>btlist,
+    private List<ImageButton>btlist{
+        for(btlist <= null){
+            setContentView(R.layout.activity_u_13);
+            try{
+                Connection con = MySqlConnect.getConnection();
+                Statement stmt = (Statement)con.createStatement();
 
-    for(btlist <= null)
+                String mySql = "select * from osake";
+                ResultSet rs = stmt.executeQuery(mySql);
+
+                while (rs.next()){
+                    Toast.makeText(getApplicationContext(), rs.getString("data"),Toast
+                }
+                rs.close();
+                stmt.close();
+                con.close();
+            }catch (Exception e){
+
+        }
+    }
+}
 
 
-        setContentView(R.layout.activity_u_13);
-        try{
-            Connection con = MySqlConnect.getConnection();
-            Statement stmt = (Statement)con.createStatement();
 
-            String mySql = "select from  osakegazou";
-            ResultSet rs = stmt.executeQuery(mySql);
 
-            while (rs.next()){
-                Toast.makeText(getApplicationContext(), rs.getString("data"),Toast
-            }
-            rs.close();
-            stmt.close();
-            con.close();
-        }catch (Exception e){
+
         }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
