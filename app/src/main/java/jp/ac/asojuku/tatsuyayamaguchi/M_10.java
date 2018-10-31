@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class M_10 extends AppCompatActivity {
     private Uri m_uri;
@@ -120,6 +121,10 @@ public class M_10 extends AppCompatActivity {
             //画像を設定
             ImageView imageViewselect = (ImageView)findViewById(R.id.imageViewSelect);
             imageViewselect.setImageURI(resultUri);
+
+            TextView texturl = (TextView)findViewById(R.id.textViewurl);
+            texturl.setText(resultUri.getPath());
+
 
         }
     }
