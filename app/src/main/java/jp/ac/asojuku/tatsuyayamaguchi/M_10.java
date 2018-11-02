@@ -12,9 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 
 public class M_10 extends AppCompatActivity {
     private Uri m_uri;
+    TextView texturl;
     private  static  final int REQUEST_CHOOSER = 1000;
 
     @Override
@@ -31,6 +37,7 @@ public class M_10 extends AppCompatActivity {
         final EditText textname = (EditText)findViewById(R.id.editTextName);
         final EditText textdegree = (EditText)findViewById(R.id.editTextDegree);
         final EditText textoutline = (EditText)findViewById(R.id.editTextOutline);
+        texturl = (TextView)findViewById(R.id.textViewurl);
         Button buttonComp = (Button)findViewById(R.id.buttoncomp);
         Button buttonback = (Button)findViewById(R.id.buttonback);
         Button buttonlogout = (Button)findViewById(R.id.buttonlogout);
@@ -42,9 +49,33 @@ public class M_10 extends AppCompatActivity {
                 String name = textname.getText().toString();
                 String degree = textdegree.getText().toString();
                 String outline = textoutline.getText().toString();
+                String image = texturl.getText().toString();
+
+                try {
+                    //データベースに接続
+                    Connection con = MySqlConnect.getConnection();
+                    //ステートメントオブジェクトを作成
+                    Statement stmt = (Statement) con.createStatement();
+
+                    //SQL
+                    String mySql = "INSERT INTO alcohol(alcohol_name,alcohol_degree,alcohol_outline,alcohol_image)" +
+                                    "VALUES("+name+","+degree+","+outline+","+image+");";
+                    ResultSet rs = stmt.executeQuery(mySql);
+
+
+                    //オブジェクトを解放
+                    rs.close();
+                    stmt.close();
+                    con.close();
+
+                } catch (Exception e) {
+
+                }
 
             }
         });
+
+
 
 
 
@@ -120,6 +151,10 @@ public class M_10 extends AppCompatActivity {
             //画像を設定
             ImageView imageViewselect = (ImageView)findViewById(R.id.imageViewSelect);
             imageViewselect.setImageURI(resultUri);
+
+
+            texturl.setText(resultUri.getPath());
+
 
         }
     }
