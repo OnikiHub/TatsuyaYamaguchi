@@ -1,10 +1,17 @@
 package jp.ac.asojuku.tatsuyayamaguchi;
 
-import android.support.v7.widget.RecyclerView;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.graphics.Bitmap;
+public class ImageViewHolder{
+    private Bitmap Imageview = null;
 
-public class ImageViewHolder extends RecyclerView.ViewHolder{
-    public
+public ImageViewHolder(){};
+
+public ImageViewHolder(Bitmap Imageview){
+    Imageview = imageview;
+}
+
+    public Bitmap getImageview() {
+        return Imageview;
+    }
 
 }

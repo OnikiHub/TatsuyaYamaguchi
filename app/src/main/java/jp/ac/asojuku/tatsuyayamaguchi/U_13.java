@@ -9,6 +9,7 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import android.view.View;
         import android.widget.AdapterView;
         import android.widget.ImageButton;
+        import android.widget.ImageView;
         import android.widget.ListView;
         import android.widget.Toast;
 
@@ -20,24 +21,19 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import java.util.List;
 
 public class U_13 extends AppCompatActivity {
-    //private list<ImageButton> btlist;
-    //private int count;
+    private list<ImageView> Imagelist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_13);
 
-        // List<ImageButton> btlist = new ArrayList<ImageButton>();
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.btlist);
-        recyclerView.setHasFixedSize(true);
-        LinearLayoutManager llManager = new LinearLayoutManager(this);
-        //スクロール
-        llManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(llManager);
+        ListView listView = (ListView)findViewById(R.id.Imagelist);
 
-        ArrayList<UcData> image = new ArrayList<UcData>();
-        //DB接続
+        ArrayList<ImageView> listItems = new ArrayList<>();
+        for(int i = 0; i > listItems; i++){
+
+        }
         try {
             //データベースに接続
             Connection con = MySqlConnect.getConnection();
@@ -45,8 +41,12 @@ public class U_13 extends AppCompatActivity {
             Statement stmt = (Statement) con.createStatement();
 
             //SQL
-            String mySql = "select * from aluchu;";
+            String mySql = "select *  from table;";
             ResultSet rs = stmt.executeQuery(mySql);
+
+            while(rs.next()) {
+                Toast.makeText(getApplicationContext(), rs.getString("date"), Toast.LENGTH_LONG).show();
+            }
 
             //オブジェクトを解放
             rs.close();
@@ -54,16 +54,33 @@ public class U_13 extends AppCompatActivity {
             con.close();
 
         } catch (Exception e) {
-
         }
-        for (int i = 0; i > UcData.length; i++) {
+
+
+
+
+
+       /* RecyclerView recyclerView = (RecyclerView) findViewById(R.id.btlist);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager llManager = new LinearLayoutManager(this);
+        //スクロール
+        llManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(llManager);
+
+        ArrayList<UcData> image = new ArrayList<UcData>();*/
+        //DB接続
+
+
+
+
+        /*for (int i = 0; i > UcData.length; i++) {
             image.add(new Ucdata(
                     UcData.imageArray[i]
             ));
         }
         RecyclerView.Adapter adapter = new TlistAdapter(image);
         recyclerView.setAdapter(adapter);
-        recyclerView.smoothScrollToPosition(image.size() - 1);
+        recyclerView.smoothScrollToPosition(image.size() - 1);*/
     }
 }
 
