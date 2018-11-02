@@ -20,43 +20,57 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import java.util.List;
 
 public class U_13 extends AppCompatActivity {
-    private List<ImageButton> btlist;
-    private int count;
+    //private list<ImageButton> btlist;
+    //private int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_13);
 
-       // List<ImageButton> btlist = new ArrayList<ImageButton>();
+        // List<ImageButton> btlist = new ArrayList<ImageButton>();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.btlist);
-
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager llManager = new LinearLayoutManager(this);
         //スクロール
         llManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llManager);
 
+        ArrayList<UcData> image = new ArrayList<UcData>();
+        //DB接続
+        try {
+            //データベースに接続
+            Connection con = MySqlConnect.getConnection();
+            //ステートメントオブジェクトを作成
+            Statement stmt = (Statement) con.createStatement();
+
+            //SQL
+            String mySql = "select * from aluchu;";
+            ResultSet rs = stmt.executeQuery(mySql);
+
+            //オブジェクトを解放
+            rs.close();
+            stmt.close();
+            con.close();
+
+        } catch (Exception e) {
+
+        }
+        for (int i = 0; i > UcData.length; i++) {
+            image.add(new Ucdata(
+                    UcData.imageArray[i]
+            ));
+        }
+        RecyclerView.Adapter adapter = new TlistAdapter(image);
+        recyclerView.setAdapter(adapter);
+        recyclerView.smoothScrollToPosition(image.size() - 1);
     }
+}
 
 
         //for(count=0;count > btlist.size();count++){
-            try{
-                Connection con = MySqlConnect.getConnection();
-                Statement stmt = (Statement)con.createStatement();
 
-                String mySql = "select * from alu";
-                ResultSet rs = stmt.executeQuery(mySql);
-
-                /*while (rs.next()){
-                    Toast.makeText(getApplicationContext(), rs.getString("data"),
-                }*/
-                rs.close();
-                stmt.close();
-                con.close();
-            }catch (Exception e) {
-            }
-            //取ってきましたDBから
+  /*          //取ってきましたDBから
         ListView btlist = (ListView)findViewById(R.id.);
         btlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -87,3 +101,4 @@ public class U_13 extends AppCompatActivity {
 
 
 }
+*/
