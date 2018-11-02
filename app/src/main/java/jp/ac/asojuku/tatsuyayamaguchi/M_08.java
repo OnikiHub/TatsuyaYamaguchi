@@ -13,26 +13,38 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
-public class M_10 extends AppCompatActivity {
+public class M_08 extends AppCompatActivity {
     private Uri m_uri;
-    TextView texturl;
+    EditText texturl;
     private  static  final int REQUEST_CHOOSER = 1000;
+
+    private int id;
+    private String name;
+    private int degree;
+    private String outline;
+    private String image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_m_10);
-        setViews();
+        setContentView(R.layout.activity_m_08);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        Intent intent = getIntent();
+        id = intent.getIntExtra("id",0);
+        name = intent.getStringExtra("name");
+        degree = intent.getIntExtra("degree",0);
+        outline = intent.getStringExtra("outline");
+        image = intent.getStringExtra("image");
 
         final EditText textname = (EditText)findViewById(R.id.editTextName);
         final EditText textdegree = (EditText)findViewById(R.id.editTextDegree);
@@ -41,6 +53,11 @@ public class M_10 extends AppCompatActivity {
         Button buttonComp = (Button)findViewById(R.id.buttoncomp);
         Button buttonback = (Button)findViewById(R.id.buttonback);
         Button buttonlogout = (Button)findViewById(R.id.buttonlogout);
+
+        textname.setText(name);
+        textdegree.setText(degree);
+        textoutline.setText(outline);
+        texturl.setText(image);
 
 
         buttonComp.setOnClickListener(new View.OnClickListener() {
@@ -58,8 +75,8 @@ public class M_10 extends AppCompatActivity {
                     Statement stmt = (Statement) con.createStatement();
 
                     //SQL
-                    String mySql = "INSERT INTO alcohol(alcohol_name,alcohol_degree,alcohol_outline,alcohol_image)" +
-                                    "VALUES("+name+","+degree+","+outline+","+image+");";
+                    String mySql = "UPDATE alcihol SET alcohol_name="+name+",alcohol_degree="+degree+",alcohol_outline="+outline+",alcohol_image="+image+
+                            "WHERE alcohol_id="+id+";";
                     ResultSet rs = stmt.executeQuery(mySql);
 
 
@@ -77,10 +94,8 @@ public class M_10 extends AppCompatActivity {
 
 
 
-
-
-
     }
+
 
     private void setViews(){
         Button buttonImg = (Button)findViewById(R.id.buttonimage);
