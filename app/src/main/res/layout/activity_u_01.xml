@@ -9,7 +9,9 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".U_02">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:context=".U_02"
+        tools:layout_editor_absoluteY="0dp">
 
         <ProgressBar
             android:id="@+id/login_progress"
@@ -90,16 +92,13 @@
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="33dp"
-            android:layout_marginEnd="120dp"
-            android:layout_marginLeft="121dp"
-            android:layout_marginRight="120dp"
-            android:layout_marginStart="121dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             app:layout_constraintBottom_toTopOf="@+id/login_form"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/Button-Touroku"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/yamaguchi" />
 
         <Button
@@ -107,15 +106,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="64dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="会員登録"
             app:layout_constraintBottom_toTopOf="@+id/login_form"
-            app:layout_constraintEnd_toStartOf="@+id/imageView5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="297dp" />
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
