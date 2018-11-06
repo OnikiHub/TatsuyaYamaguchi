@@ -1,6 +1,8 @@
 package jp.ac.asojuku.tatsuyayamaguchi;
 
         import android.database.sqlite.SQLiteCursor;
+        import android.graphics.Bitmap;
+        import android.graphics.BitmapFactory;
         import android.provider.ContactsContract;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
@@ -21,17 +23,27 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import java.util.List;
 
 public class U_13 extends AppCompatActivity {
-    private list<ImageView> Imagelist;
+    //private list<ImageView> Imagelist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_13);
+     @Override
+     protected  void onResume(){
+         super.onResume();
 
         ListView listView = (ListView)findViewById(R.id.Imagelist);
 
+
         ArrayList<ImageView> listItems = new ArrayList<>();
-        for(int i = 0; i > listItems; i++){
+        for(int i = 0; i < 4 ;i++) {
+            Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+            ImageView item = new ImageView(bmp, "基本の" + String.valueOf(i));
+            listItems.add(item);
+        }
+        TlistAdapter adapter = new TlistAdapter(this,R.id.Imagelist,);
+        listView.setAdapter(adapter);
 
         }
         try {
@@ -44,10 +56,6 @@ public class U_13 extends AppCompatActivity {
             String mySql = "select *  from table;";
             ResultSet rs = stmt.executeQuery(mySql);
 
-            while(rs.next()) {
-                Toast.makeText(getApplicationContext(), rs.getString("date"), Toast.LENGTH_LONG).show();
-            }
-
             //オブジェクトを解放
             rs.close();
             stmt.close();
@@ -55,6 +63,8 @@ public class U_13 extends AppCompatActivity {
 
         } catch (Exception e) {
         }
+        @Override
+                onResume();
 
 
 
