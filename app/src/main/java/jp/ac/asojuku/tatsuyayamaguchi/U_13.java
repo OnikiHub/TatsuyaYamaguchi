@@ -1,5 +1,6 @@
 package jp.ac.asojuku.tatsuyayamaguchi;
 
+        import android.content.Context;
         import android.database.sqlite.SQLiteCursor;
         import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
@@ -8,11 +9,15 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import android.os.Bundle;
         import android.support.v7.widget.LinearLayoutManager;
         import android.support.v7.widget.RecyclerView;
+        import android.view.LayoutInflater;
         import android.view.View;
+        import android.view.ViewGroup;
         import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
         import android.widget.ImageButton;
         import android.widget.ImageView;
         import android.widget.ListView;
+        import android.widget.TextView;
         import android.widget.Toast;
 
         import java.sql.Connection;
@@ -29,7 +34,85 @@ public class U_13 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_13);
-     @Override
+
+
+        ListView myListView = (ListView) findViewById(R.id.myListView);
+        ArrayList<User> users = new ArrayList<>();
+        int[] icons = {
+                R.mipmap.ic_launcher,
+                R.mipmap.ic_launcher,
+                R.mipmap.ic_launcher
+        };
+
+        String[] names = {
+                "azunobu",
+                "azuki",
+                "kanon"
+        };
+
+        String[] comments = {
+                "FUCK YOU。",
+                "…。",
+                "ｷｬﾝｷｬﾝ!!!ﾜﾝﾜﾝ!!!ｱﾝｱﾝｱﾝｱﾝｱﾝｱﾝ!!"
+        };
+        for (int i = 0; i<icons.length; i++) {
+            User user = new User();
+            user.setIcon(BitmapFactory.decodeResource(
+                    getResources(),
+                    icons[i]
+            ));
+            user.setName(names[i]);
+            user.setComment(comments[i]);
+            users.add(user);
+        }
+        UserAdapter adapter = new UserAdapter(this, 0, users);
+
+        myListView.setEmptyView(findViewById(R.id.emptyView));
+        myListView.setAdapter(adapter);
+    }
+    public class UserAdapter extends ArrayAdapter<User> {
+
+        private LayoutInflater layoutInflater;
+
+        public UserAdapter(Context c, int id, ArrayList<User> users) {
+            super(c, id, users);
+            this.layoutInflater = (LayoutInflater) c.getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE
+            );
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = layoutInflater.inflate(
+                        R.layout.style2,
+                        parent,
+                        false
+                );
+            }
+            User user = (User) getItem(position);
+
+            ((ImageView) convertView.findViewById(R.id.icon))
+                    .setImageBitmap(user.getIcon());
+            ((TextView) convertView.findViewById(R.id.name))
+                    .setText(user.getName());
+            ((TextView) convertView.findViewById(R.id.comment))
+                    .setText(user.getComment());
+
+            return convertView;
+        }
+
+        public class User {
+
+        }
+    }
+}
+
+
+
+
+
+     /*@Override
      protected  void onResume(){
          super.onResume();
 
@@ -42,11 +125,11 @@ public class U_13 extends AppCompatActivity {
             ImageView item = new ImageView(bmp, "基本の" + String.valueOf(i));
             listItems.add(item);
         }
-        TlistAdapter adapter = new TlistAdapter(this,R.id.Imagelist,);
+        TlistAdapte                                                                                                                                                                                                                                         r adapter = new TlistAdapter(this,R.id.Imagelist,);
         listView.setAdapter(adapter);
 
-        }
-        try {
+        }*/
+        /*try {
             //データベースに接続
             Connection con = MySqlConnect.getConnection();
             //ステートメントオブジェクトを作成
@@ -62,70 +145,9 @@ public class U_13 extends AppCompatActivity {
             con.close();
 
         } catch (Exception e) {
-        }
-        @Override
-                onResume();
+        }*/
 
 
 
 
 
-       /* RecyclerView recyclerView = (RecyclerView) findViewById(R.id.btlist);
-        recyclerView.setHasFixedSize(true);
-        LinearLayoutManager llManager = new LinearLayoutManager(this);
-        //スクロール
-        llManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(llManager);
-
-        ArrayList<UcData> image = new ArrayList<UcData>();*/
-        //DB接続
-
-
-
-
-        /*for (int i = 0; i > UcData.length; i++) {
-            image.add(new Ucdata(
-                    UcData.imageArray[i]
-            ));
-        }
-        RecyclerView.Adapter adapter = new TlistAdapter(image);
-        recyclerView.setAdapter(adapter);
-        recyclerView.smoothScrollToPosition(image.size() - 1);*/
-    }
-}
-
-
-        //for(count=0;count > btlist.size();count++){
-
-  /*          //取ってきましたDBから
-        ListView btlist = (ListView)findViewById(R.id.);
-        btlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                parent.getChildAt(lastPosicion).setBackgroundColor(0);
-            }
-            view.setBackgroundColor(getResources().getColor(R.color.tap_color));
-            SQLiteCursor cursor = (SQLiteCursor)parent.getItemAtPosotion(position);
-
-        });
-       // }
-    }
-    }
-    public
-}
-
-
-
-
-
-        }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    List<String> list = new ArrayList<String>(Arrays.asList(ite));
-
-
-
-}
-*/
