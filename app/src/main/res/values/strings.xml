@@ -7,6 +7,7 @@
     <string name="passeord">パスワードを入力</string>
     <string name="decide">決定</string>
     <string name="comp">完了</string>
+    <string name="delete">削除</string>
     <string name="name">名前</string>
     <string name="degree">アルコール度数</string>
     <string name="outline">説明</string>
@@ -15,6 +16,7 @@
     <string name="beil">ビール</string>
     <string name="wine">ワイン</string>
     <string name="ok">決定</string>
+    <string name="insert">コンテンツ登録</string>
 
 
     Strings related to login
