@@ -38,7 +38,8 @@
         <activity android:name=".U_14" />
         <activity android:name=".U_15" />
         <activity android:name=".M_10" />
-        <activity android:name=".M_08"></activity>
+        <activity android:name=".M_08" />
+        <activity android:name=".M_05"></activity>
     </application>
 
 </manifest>
