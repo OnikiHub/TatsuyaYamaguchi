@@ -20,6 +20,7 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import android.widget.ImageButton;
         import android.widget.ImageView;
         import android.widget.ListView;
+        import android.widget.SimpleAdapter;
         import android.widget.SimpleCursorAdapter;
         import android.widget.TextView;
         import android.widget.Toast;
@@ -29,7 +30,9 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import java.sql.Statement;
         import java.util.ArrayList;
         import java.util.Arrays;
+        import java.util.HashMap;
         import java.util.List;
+        import java.util.Map;
 
 public class U_13 extends AppCompatActivity {
     private SQLiteDatabase sqlDB;
@@ -41,6 +44,25 @@ public class U_13 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_13);
+        String[] osake ={"StrongZ","Wine","Kiil","Poppii","noize"};
+        //String[] aluchu = {"12%","32%","9%","5%","40%"};
+        String[] comment = {"Japanese solu drenk!!!","死ぬ","Yeahhhh","FUCK YOU","そんなのないよ"};
+        List<Map<String, String>>data = new ArrayList<Map<String, String>>();
+        for (int i=0; i<osake.length; i++) {
+            Map<String, String> item = new HashMap<String, String>();
+            item.put("osake", osake[i]);
+            item.put("comment", comment[i]);
+            data.add(item);
+        }
+
+        // リスト項目とListViewを対応付けるArrayAdapterを用意する
+        SimpleAdapter adapter = new SimpleAdapter(this,data,android.R.layout.simple_list_item_2,
+                new String[]{ "osake", "comment"},
+                new int[] { android.R.id.text1, android.R.id.text2}
+                );
+        //ListViewにAdapterを設定する,,,,いい感じ
+        ListView listView = (ListView)findViewById(R.id.sListView);
+        listView.setAdapter(adapter);
     }
 
     @Override
