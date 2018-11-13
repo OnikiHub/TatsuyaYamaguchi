@@ -1,7 +1,9 @@
 package jp.ac.asojuku.tatsuyayamaguchi;
 
         import android.content.Context;
+        import android.content.Intent;
         import android.database.sqlite.SQLiteCursor;
+        import android.database.sqlite.SQLiteDatabase;
         import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
         import android.provider.ContactsContract;
@@ -14,9 +16,11 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import android.view.ViewGroup;
         import android.widget.AdapterView;
         import android.widget.ArrayAdapter;
+        import android.widget.Button;
         import android.widget.ImageButton;
         import android.widget.ImageView;
         import android.widget.ListView;
+        import android.widget.SimpleCursorAdapter;
         import android.widget.TextView;
         import android.widget.Toast;
 
@@ -28,15 +32,64 @@ package jp.ac.asojuku.tatsuyayamaguchi;
         import java.util.List;
 
 public class U_13 extends AppCompatActivity {
-    //private list<ImageView> Imagelist;
+    private SQLiteDatabase sqlDB;
+    DBmanager dbm;
+    int selectedID = -1;
+    int lastPosition = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_13);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Button check = (Button) findViewById(R.id.buttonCheck);
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(U_13.this, U_14.class);
+                startActivity(intent);
+            }
+        });
+        ListView listView = (ListView) findViewById(R.id.sListView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (selectedID != -1) {
 
-        ListView myListView = (ListView) findViewById(R.id.myListView);
+                    parent.getChildAt(lastPosition).setBackgroundColor(0);
+                }
+                //view.setBackgroundColor(getResources().getColor(R.color.tap_color));
+                SQLiteCursor cursor = (SQLiteCursor) parent.getItemAtPosition(position);
+                selectedID = cursor.getInt(cursor.getColumnIndex("_id"));
+
+                lastPosition = position;
+            }
+        });
+        setValueToList(listView);
+    }
+
+    private void setValueToList(ListView list) {
+        SQLiteCursor cursor = null;
+
+        dbm = new DBmanager;
+        sqlDB = dbm.getWritableDatabase();
+        cursor = dbm.selectWord(sqlDB);
+
+        int dblayout = android.R.layout.simple_list_item_1;
+
+        String[] from = {"phrase"};
+        int[] to = new int[]{android.R.id.text1};
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, dblayout, cursor, from, to, 0);
+        list.setAdapter(adapter);
+    }
+}
+/*
+
+    ListView myListView = (ListView) findViewById(R.id.myListView);
         ArrayList<User> users = new ArrayList<>();
         int[] icons = {
                 R.mipmap.ic_launcher,
@@ -45,9 +98,9 @@ public class U_13 extends AppCompatActivity {
         };
 
         String[] names = {
-                "azunobu",
-                "azuki",
-                "kanon"
+                "yuumi",
+                "ikuj",
+                "kikori"
         };
 
         String[] comments = {
@@ -104,50 +157,7 @@ public class U_13 extends AppCompatActivity {
 
         public class User {
 
+
         }
     }
 }
-
-
-
-
-
-     /*@Override
-     protected  void onResume(){
-         super.onResume();
-
-        ListView listView = (ListView)findViewById(R.id.Imagelist);
-
-
-        ArrayList<ImageView> listItems = new ArrayList<>();
-        for(int i = 0; i < 4 ;i++) {
-            Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
-            ImageView item = new ImageView(bmp, "基本の" + String.valueOf(i));
-            listItems.add(item);
-        }
-        TlistAdapte                                                                                                                                                                                                                                         r adapter = new TlistAdapter(this,R.id.Imagelist,);
-        listView.setAdapter(adapter);
-
-        }*/
-        /*try {
-            //データベースに接続
-            Connection con = MySqlConnect.getConnection();
-            //ステートメントオブジェクトを作成
-            Statement stmt = (Statement) con.createStatement();
-
-            //SQL
-            String mySql = "select *  from table;";
-            ResultSet rs = stmt.executeQuery(mySql);
-
-            //オブジェクトを解放
-            rs.close();
-            stmt.close();
-            con.close();
-
-        } catch (Exception e) {
-        }*/
-
-
-
-
-
