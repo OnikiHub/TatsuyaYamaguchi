@@ -1,6 +1,7 @@
 package jp.ac.asojuku.tatsuyayamaguchi;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -17,6 +18,11 @@ public class DBManager extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    public SQLiteCursor selectWord(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM word ORDER BY _id";
+        SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return  cursor;
+    }
 
 
 }

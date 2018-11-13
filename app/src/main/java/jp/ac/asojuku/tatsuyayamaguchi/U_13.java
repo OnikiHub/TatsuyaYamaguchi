@@ -33,7 +33,7 @@ package jp.ac.asojuku.tatsuyayamaguchi;
 
 public class U_13 extends AppCompatActivity {
     private SQLiteDatabase sqlDB;
-    DBmanager dbm;
+    DBManager dbm;
     int selectedID = -1;
     int lastPosition = -1;
 
@@ -75,7 +75,7 @@ public class U_13 extends AppCompatActivity {
     private void setValueToList(ListView list) {
         SQLiteCursor cursor = null;
 
-        dbm = new DBmanager;
+        dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
         cursor = dbm.selectWord(sqlDB);
 
@@ -156,8 +156,4 @@ public class U_13 extends AppCompatActivity {
         }
 
         public class User {
-
-
-        }
-    }
-}
+*/
