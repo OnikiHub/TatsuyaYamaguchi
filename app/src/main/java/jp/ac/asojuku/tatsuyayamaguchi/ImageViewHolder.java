@@ -1,7 +1,7 @@
 package jp.ac.asojuku.tatsuyayamaguchi;
 
 import android.graphics.Bitmap;
-public class ImageViewHolder{
+public class ImageViewHolder {
     private Bitmap icon;
     private String user;
     private String comment;
@@ -21,4 +21,5 @@ public class ImageViewHolder{
     public void setIcon(Bitmap icon) {
         this.icon = icon;
     }
+
 }
