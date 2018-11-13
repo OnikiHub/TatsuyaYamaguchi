@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".U_03">
 
+    <ImageView
+        android:id="@+id/imageViewyamaguchi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewtouroku"
+        app:layout_constraintEnd_toStartOf="@+id/textViewkeikoku"
+        app:layout_constraintHorizontal_bias="0.015"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/yamaguchi" />
+
 
     <TextView
         android:id="@+id/textViewtouroku"
@@ -74,8 +92,8 @@
 
     <EditText
         android:id="@+id/editTextE-mail"
-        android:layout_width="258"
-        android:layout_height="34"
+        android:layout_width="258dp"
+        android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -131,7 +149,7 @@
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
-        android:layout_height="20"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
@@ -145,8 +163,8 @@
 
     <Spinner
         android:id="@+id/spinneranke2"
-        android:layout_width="67"
-        android:layout_height="35"
+        android:layout_width="67dp"
+        android:layout_height="35dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
@@ -157,7 +175,7 @@
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
-        android:layout_height="20"
+        android:layout_height="20dp"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="32dp"
@@ -170,8 +188,8 @@
 
     <Spinner
         android:id="@+id/spinner3"
-        android:layout_width="67"
-        android:layout_height="35"
+        android:layout_width="67dp"
+        android:layout_height="35dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"

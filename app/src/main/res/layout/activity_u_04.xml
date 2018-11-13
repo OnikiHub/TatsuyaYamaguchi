@@ -91,8 +91,8 @@
 
     <EditText
         android:id="@+id/editTextE-mail"
-        android:layout_width="258"
-        android:layout_height="34"
+        android:layout_width="258dp"
+        android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -148,7 +148,7 @@
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
-        android:layout_height="20"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
@@ -162,8 +162,8 @@
 
     <Spinner
         android:id="@+id/spinneranke2"
-        android:layout_width="67"
-        android:layout_height="35"
+        android:layout_width="67dp"
+        android:layout_height="35dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
@@ -174,7 +174,7 @@
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
-        android:layout_height="20"
+        android:layout_height="20dp"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="32dp"
@@ -187,8 +187,8 @@
 
     <Spinner
         android:id="@+id/spinner3"
-        android:layout_width="67"
-        android:layout_height="35"
+        android:layout_width="67dp"
+        android:layout_height="35dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
