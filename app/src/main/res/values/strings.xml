@@ -16,7 +16,36 @@
     <string name="ok">決定</string>
     <string name="insert">コンテンツ登録</string>
     <string name="tap">飲んだらタップする</string>
+
+    <string name="pic">写真を撮る</string>
+    <string name="drink">お酒を飲む</string>
+    <string name="update">情報変更</string>
+    <string name="his">履歴</string>
+
+
+    Strings related to login
     <string name="osaketap">飲んだお酒をタップしてください</string>
     <string name="clist">コンテンツ一覧</string>
     <string name="logout">ログアウト</string>
+
+    <string-array name="listOne">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="listTwo">
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="listThree">
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
 </resources>
