@@ -17,6 +17,7 @@ public class U_08 extends AppCompatActivity {
         super.onResume();
 
         Button picture = (Button)findViewById(R.id.buttonpic);
+        picture
 
     }
 }
