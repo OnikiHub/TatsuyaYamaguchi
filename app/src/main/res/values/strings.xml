@@ -18,6 +18,11 @@
     <string name="ok">決定</string>
     <string name="insert">コンテンツ登録</string>
 
+    <string name="pic">写真を撮る</string>
+    <string name="drink">お酒を飲む</string>
+    <string name="update">情報変更</string>
+    <string name="his">履歴</string>
+
 
     Strings related to login
     <string name="osaketap">飲んだお酒をタップしてください</string>

@@ -2,6 +2,7 @@ package jp.ac.asojuku.tatsuyayamaguchi;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 
 public class U_08 extends AppCompatActivity {
 
@@ -9,5 +10,14 @@ public class U_08 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_08);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Button picture = (Button)findViewById(R.id.buttonpic);
+        picture
+
     }
 }
