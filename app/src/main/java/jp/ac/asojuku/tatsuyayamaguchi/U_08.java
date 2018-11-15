@@ -27,7 +27,7 @@ public class U_08 extends AppCompatActivity {
             }
         });
 
-        Button buttondrink = (Button)findViewById(R.id.buttondrink);
+        Button buttondrink = (Button)findViewById(R.id.drink);
         buttondrink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

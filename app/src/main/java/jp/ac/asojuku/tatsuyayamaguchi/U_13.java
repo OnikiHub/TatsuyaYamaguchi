@@ -40,24 +40,27 @@ public class U_13 extends AppCompatActivity {
     int selectedID = -1;
     int lastPosition = -1;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_13);
         String[] osake ={"StrongZ","Wine","Kiil","Poppii","noize"};
-        //String[] aluchu = {"12%","32%","9%","5%","40%"};
-        String[] comment = {"Japanese solu drenk!!!","死ぬ","Yeahhhh","FUCK YOU","そんなのないよ"};
+        //int[] alcohol = {12,32,9,5,40};
+        String[] comment = {"Japanese soul drenk!!!","sick","Yeahhhh","FUCK YOU","wanwanawn"};
+
         List<Map<String, String>>data = new ArrayList<Map<String, String>>();
         for (int i=0; i<osake.length; i++) {
             Map<String, String> item = new HashMap<String, String>();
             item.put("osake", osake[i]);
+            //item.put("alcohol",alcohol[i]);
             item.put("comment", comment[i]);
             data.add(item);
         }
 
         // リスト項目とListViewを対応付けるArrayAdapterを用意する
         SimpleAdapter adapter = new SimpleAdapter(this,data,android.R.layout.simple_list_item_2,
-                new String[]{ "osake", "comment"},
+                new String[]{ "osake","comment"},
                 new int[] { android.R.id.text1, android.R.id.text2}
                 );
         //ListViewにAdapterを設定する,,,,いい感じ
@@ -68,6 +71,7 @@ public class U_13 extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         Button check = (Button) findViewById(R.id.buttonCheck);
         check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,73 +113,3 @@ public class U_13 extends AppCompatActivity {
         list.setAdapter(adapter);
     }
 }
-/*
-
-    ListView myListView = (ListView) findViewById(R.id.myListView);
-        ArrayList<User> users = new ArrayList<>();
-        int[] icons = {
-                R.mipmap.ic_launcher,
-                R.mipmap.ic_launcher,
-                R.mipmap.ic_launcher
-        };
-
-        String[] names = {
-                "yuumi",
-                "ikuj",
-                "kikori"
-        };
-
-        String[] comments = {
-                "FUCK YOU。",
-                "…。",
-                "ｷｬﾝｷｬﾝ!!!ﾜﾝﾜﾝ!!!ｱﾝｱﾝｱﾝｱﾝｱﾝｱﾝ!!"
-        };
-        for (int i = 0; i<icons.length; i++) {
-            User user = new User();
-            user.setIcon(BitmapFactory.decodeResource(
-                    getResources(),
-                    icons[i]
-            ));
-            user.setName(names[i]);
-            user.setComment(comments[i]);
-            users.add(user);
-        }
-        UserAdapter adapter = new UserAdapter(this, 0, users);
-
-        myListView.setEmptyView(findViewById(R.id.emptyView));
-        myListView.setAdapter(adapter);
-    }
-    public class UserAdapter extends ArrayAdapter<User> {
-
-        private LayoutInflater layoutInflater;
-
-        public UserAdapter(Context c, int id, ArrayList<User> users) {
-            super(c, id, users);
-            this.layoutInflater = (LayoutInflater) c.getSystemService(
-                    Context.LAYOUT_INFLATER_SERVICE
-            );
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = layoutInflater.inflate(
-                        R.layout.style2,
-                        parent,
-                        false
-                );
-            }
-            User user = (User) getItem(position);
-
-            ((ImageView) convertView.findViewById(R.id.icon))
-                    .setImageBitmap(user.getIcon());
-            ((TextView) convertView.findViewById(R.id.name))
-                    .setText(user.getName());
-            ((TextView) convertView.findViewById(R.id.comment))
-                    .setText(user.getComment());
-
-            return convertView;
-        }
-
-        public class User {
-*/
