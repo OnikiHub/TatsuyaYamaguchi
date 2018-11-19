@@ -39,12 +39,13 @@ public class M_08 extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        Intent intent = getIntent();
+        /*Intent intent = getIntent();
         id = intent.getIntExtra("id",0);
         name = intent.getStringExtra("name");
         degree = intent.getIntExtra("degree",0);
         outline = intent.getStringExtra("outline");
         image = intent.getStringExtra("image");
+        */
 
         final EditText textname = (EditText)findViewById(R.id.editTextName);
         final EditText textdegree = (EditText)findViewById(R.id.editTextDegree);

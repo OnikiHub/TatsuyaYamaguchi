@@ -27,7 +27,7 @@ public class U_08 extends AppCompatActivity {
             }
         });
 
-        Button buttondrink = (Button)findViewById(R.id.drink);
+        Button buttondrink = (Button)findViewById(R.id.buttondrink);
         buttondrink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +58,7 @@ public class U_08 extends AppCompatActivity {
         buttoncontent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(U_08.this,M_08.class);
+                Intent intent = new Intent(U_08.this,M_10.class);
                 startActivity(intent);
             }
         });
