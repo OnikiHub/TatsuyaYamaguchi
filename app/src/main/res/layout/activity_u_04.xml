@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTEL" />
 
     <EditText
-        android:id="@+id/editTextE-mail"
+        android:id="@+id/editTextEmail"
         android:layout_width="258dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
@@ -117,7 +117,7 @@
         android:text="アンケート"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextE-mail" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
     <TextView
         android:id="@+id/textViewanke1"
