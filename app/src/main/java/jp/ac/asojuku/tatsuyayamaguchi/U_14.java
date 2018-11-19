@@ -43,15 +43,15 @@ public class U_14 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_14);
-        String[] osake ={"StrongZ","Wine","Kiil","Poppii","noize"};
-        //int[] alcohol = {12,32,9,5,40};
-        String[] comment = {"Japanese soul drenk!!!","sick","Yeahhhh","FUCK YOU","wanwanawn"};
+        String[] osake ={"ビール","芋焼酎","米焼酎","カクテル","ワイン"};
+        Integer[] alcohol = {12,32,9,5,40};
+        String[] comment = {"発泡酒","芋","米","カクテル","ワイン"};
 
-        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+        List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
         for (int i=0; i<osake.length; i++) {
-            Map<String, String> item = new HashMap<String, String>();
+            Map<String, Object> item = new HashMap<String, Object>();
             item.put("osake", osake[i]);
-            //item.put("alcohol",alcohol[i]);
+            item.put("alcohol",alcohol[i]);
             item.put("comment", comment[i]);
             data.add(item);
         }
@@ -63,7 +63,7 @@ public class U_14 extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.sListView);
         listView.setAdapter(adapter);
 
-        /*Button button = this.findViewById(R.id.button1);
+        Button button = this.findViewById(R.id.button1);
         String str = "Alarm set";
         button.setText(str);
 
@@ -75,7 +75,7 @@ public class U_14 extends AppCompatActivity {
                 // Calendarを使って現在の時間をミリ秒で取得
                 calendar.setTimeInMillis(System.currentTimeMillis());
                 // 5秒後に設定
-                calendar.add(Calendar.SECOND, 5);
+                calendar.add(Calendar.SECOND, 3);
 
                 //明示的なBroadCast
                 Intent intent = new Intent(getApplicationContext(),
@@ -89,19 +89,15 @@ public class U_14 extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(),
                             "Set Alarm ", Toast.LENGTH_SHORT).show();
-                }*/
-            //}
-        //});
+                }
+            }
+        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Intent intent = getIntent();
-        value = intent.getIntExtra("value",0);
-        alcohol = intent.getIntExtra("alcohol",0);
-        update = intent.getIntExtra("update",0);
-
+        //ここはリスト表示
         ListView listView = (ListView) findViewById(R.id.sListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -110,19 +106,14 @@ public class U_14 extends AppCompatActivity {
 
                     parent.getChildAt(lastPosition).setBackgroundColor(0);
                 }
+                //hashMapで値を渡してposition(行)で計算
                 //view.setBackgroundColor(getResources().getColor(R.color.tap_color));
-                SQLiteCursor cursor = (SQLiteCursor) parent.getItemAtPosition(position);
-                selectedID = cursor.getInt(cursor.getColumnIndex("_id"));
+                HashMap<String,Object> hashMap = (HashMap<String, Object>) parent.getItemAtPosition(position);
+                selectedID = position;
+                //キャストして受け取る(String,Integer,String)明日はここから↓↓
 
+                
                 lastPosition = position;
-            }
-        });
-        //setValueToList(listView);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
 
             }
         });

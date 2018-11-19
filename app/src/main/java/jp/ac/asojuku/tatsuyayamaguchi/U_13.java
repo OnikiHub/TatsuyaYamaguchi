@@ -45,9 +45,9 @@ public class U_13 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_13);
-        String[] osake ={"StrongZ","Wine","Kiil","Poppii","noize"};
+        String[] osake ={"ビール","芋焼酎","米焼酎","カクテル","ワイン"};
         //int[] alcohol = {12,32,9,5,40};
-        String[] comment = {"Japanese soul drenk!!!","sick","Yeahhhh","FUCK YOU","wanwanawn"};
+        String[] comment = {"発泡酒","芋","米","カクテル","ワイン"};
 
         List<Map<String, String>>data = new ArrayList<Map<String, String>>();
         for (int i=0; i<osake.length; i++) {
@@ -80,7 +80,7 @@ public class U_13 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        ListView listView = (ListView) findViewById(R.id.sListView);
+       /* ListView listView = (ListView) findViewById(R.id.sListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -94,8 +94,8 @@ public class U_13 extends AppCompatActivity {
 
                 lastPosition = position;
             }
-        });
-        setValueToList(listView);
+        });*/
+        //setValueToList(listView);
     }
 
     private void setValueToList(ListView list) {
