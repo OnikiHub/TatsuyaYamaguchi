@@ -111,8 +111,9 @@ public class U_14 extends AppCompatActivity {
                 HashMap<String,Object> hashMap = (HashMap<String, Object>) parent.getItemAtPosition(position);
                 selectedID = position;
                 //キャストして受け取る(String,Integer,String)明日はここから↓↓
+                hashMap.get(position);
 
-                
+
                 lastPosition = position;
 
             }
