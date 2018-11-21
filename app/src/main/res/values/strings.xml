@@ -17,6 +17,7 @@
     <string name="insert">コンテンツ登録</string>
     <string name="tap">飲んだらタップする</string>
     <string name="next">次へ</string>
+    <string name="stop">アラームを止める</string>
 
     <string name="pic">写真を撮る</string>
     <string name="drink">お酒を飲む</string>

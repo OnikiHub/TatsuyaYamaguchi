@@ -17,8 +17,11 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -30,7 +33,10 @@ public class U_14 extends AppCompatActivity {
     DBManager dbm;
     private int value;
     private int alcohol;
-    private int update;
+    private double update = 0;
+    private double update2 = 0;
+    private double update3 = 0;
+    private double update4 = 0;
     int selectedID = -1;
     int lastPosition = -1;
     private AlarmManager am;
@@ -44,8 +50,9 @@ public class U_14 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_14);
         String[] osake ={"ビール","芋焼酎","米焼酎","カクテル","ワイン"};
-        Integer[] alcohol = {12,32,9,5,40};
+        Integer[] alcohol = {12,32,9,5,12};
         String[] comment = {"発泡酒","芋","米","カクテル","ワイン"};
+        Integer[] ml = {350,200,200,250,120};
 
         List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
         for (int i=0; i<osake.length; i++) {
@@ -53,6 +60,7 @@ public class U_14 extends AppCompatActivity {
             item.put("osake", osake[i]);
             item.put("alcohol",alcohol[i]);
             item.put("comment", comment[i]);
+            item.put("ml", ml[i]);
             data.add(item);
         }
         SimpleAdapter adapter = new SimpleAdapter(this,data,android.R.layout.simple_list_item_2,
@@ -97,6 +105,10 @@ public class U_14 extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        //小数点
+        double d3 = update4;
+        final BigDecimal bd = new BigDecimal(String.valueOf(update4));
+
         //ここはリスト表示
         ListView listView = (ListView) findViewById(R.id.sListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -111,10 +123,47 @@ public class U_14 extends AppCompatActivity {
                 HashMap<String,Object> hashMap = (HashMap<String, Object>) parent.getItemAtPosition(position);
                 selectedID = position;
                 //キャストして受け取る(String,Integer,String)明日はここから↓↓
-                hashMap.get(position);
+                String osake = (String)hashMap.get("osake");
+                Integer value = (Integer)hashMap.get("alcohol");
+                String comment = (String)hashMap.get("comment");
+                Integer ml = (Integer)hashMap.get("ml");
 
+                update = (ml * value * 1) ;
+                update2 =(833 * 52) ;
+                update3 = update / update2 ;
+                update4 = update3 + update4;
+
+                TextView updatatext = (TextView)findViewById(R.id.updatatext);
+                updatatext.setText(String.valueOf(update4)+"%");
+                if (update4 < 0.05) {
+                    TextView control = (TextView) findViewById(R.id.control);
+                    BigDecimal bd3 = bd.setScale(2, RoundingMode.HALF_UP);
+                    updatatext.setText(String.valueOf(bd) + "%です。" + "爽快期");
+                }else if (update4 < 0.10) {
+                    //BigDecimal bd3 = bd.setScale(2, RoundingMode.HALF_UP);
+                    TextView control = (TextView) findViewById(R.id.control);
+                    updatatext.setText(String.valueOf(update4) + "%です。" + "ほろ酔い期");
+                }else if (update4 < 0.15) {
+                    //BigDecimal bd3 = bd.setScale(2, RoundingMode.HALF_UP);
+                    TextView control = (TextView) findViewById(R.id.control);
+                    updatatext.setText(String.valueOf(update4) + "%" + "酩酊初期");
+                }else if (update4 < 0.30) {
+                    //BigDecimal bd3 = bd.setScale(2, RoundingMode.HALF_UP);
+                    TextView control = (TextView) findViewById(R.id.control);
+                    updatatext.setText(String.valueOf(update4) + "%" + "酩酊期");
+                }else if (update4 < 0.40) {
+                    //BigDecimal bd3 = bd.setScale(2, RoundingMode.HALF_UP);
+                    TextView control = (TextView) findViewById(R.id.control);
+                    updatatext.setText(String.valueOf(update4) + "%" + "泥酔期");
+                }else if (update4 < 0.50){
+                    //BigDecimal bd3 = bd.setScale(2, RoundingMode.HALF_UP);
+                    TextView control = (TextView) findViewById(R.id.control);
+                    updatatext.setText(String.valueOf(update4) + "%" + "昏睡期　死の危険がある");
+                }
 
                 lastPosition = position;
+
+
 
             }
         });
