@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextname" />
 
     <EditText
-        android:id="@+id/editTextTaiju"
+        android:id="@+id/editTextweight"
         android:layout_width="258dp"
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
@@ -104,7 +104,7 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTaiju" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextweight" />
 
     <TextView
         android:id="@+id/textViewankeeto"

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.annotation.IntegerRes;
 
 public class DBManager extends SQLiteOpenHelper{
     public DBManager(Context context) { super(context,"Tatsuya",null,1);}
@@ -22,6 +23,11 @@ public class DBManager extends SQLiteOpenHelper{
         String selectSql = "SELECT * FROM word ORDER BY _id";
         SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return  cursor;
+    }
+
+    public  void  touroku(SQLiteDatabase sqLiteDatabase, Integer inputweight){
+        String sql = "INSERT INTO weight VALUEs(?)";
+        sqLiteDatabase.execSQL(sql,new Integer[]{inputweight});
     }
 
 
