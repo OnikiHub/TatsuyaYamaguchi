@@ -69,7 +69,7 @@ public class U_03 extends AppCompatActivity {
         //int message = user_weight.getText().toint();
         EditText editTextweight = (EditText) findViewById(R.id.editTextweight);
         String weight = editTextweight.getText().toString();
-        int Weight = Integer.parseInt(weight);
+        Integer Weight = Integer.parseInt(weight);
         Spinner spinneranke1 = (Spinner) findViewById(R.id.spinneranke1);
         Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
         Spinner spinneranke3 = (Spinner) findViewById(R.id.spinneranke3);
