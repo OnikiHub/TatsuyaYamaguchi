@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jp.ac.asojuku.tatsuyayamaguchi" xmlns:tools="http://schemas.android.com/tools">
+    package="jp.ac.asojuku.tatsuyayamaguchi">
 
-
-    <uses-sdk tools:overrideLibrary="com.microsoft.projectoxford.face"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -26,20 +23,17 @@
         <activity android:name=".U_10" />
         <activity android:name=".U_11" />
         <activity android:name=".U_12" />
-        <activity android:name=".U_13" />
-
-
+        <activity android:name=".U_13"/>
         <activity android:name=".U_08" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>>
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
+
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".U_14" />
-        //ここから下は怪しい、特にreceiver
-        <receiver android:name=".AlarmBroadcastReceiver"
-            android:process=":remote" />
         <activity android:name=".U_15" />
     </application>
 
