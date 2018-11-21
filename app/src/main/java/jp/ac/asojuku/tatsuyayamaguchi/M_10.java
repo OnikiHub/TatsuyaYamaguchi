@@ -51,26 +51,7 @@ public class M_10 extends AppCompatActivity {
                 String outline = textoutline.getText().toString();
                 String image = texturl.getText().toString();
 
-                try {
-                    //データベースに接続
-                    Connection con = MySqlConnect.getConnection();
-                    //ステートメントオブジェクトを作成
-                    Statement stmt = (Statement) con.createStatement();
 
-                    //SQL
-                    String mySql = "INSERT INTO alcohol(alcohol_name,alcohol_degree,alcohol_outline,alcohol_image)" +
-                                    "VALUES("+name+","+degree+","+outline+","+image+");";
-                    ResultSet rs = stmt.executeQuery(mySql);
-
-
-                    //オブジェクトを解放
-                    rs.close();
-                    stmt.close();
-                    con.close();
-
-                } catch (Exception e) {
-
-                }
 
             }
         });
