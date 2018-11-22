@@ -128,7 +128,7 @@ public class U_14 extends AppCompatActivity {
                 Integer ml = (Integer)hashMap.get("ml");
 
                 update = (ml * value * 1) ;
-                update2 =(833 * 52) ;
+                update2 = (833 * 52) ;
                 update3 = update / update2 ;
                 update4 = update3 + update4;
                 double d3 = update4;

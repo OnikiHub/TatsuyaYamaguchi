@@ -37,6 +37,9 @@ public class U_03 extends AppCompatActivity {
         //xxx
     }
 
+
+
+
     private void initSpinners(){
         Spinner spinneranke1 = (Spinner)findViewById(R.id.spinneranke1);
         Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
