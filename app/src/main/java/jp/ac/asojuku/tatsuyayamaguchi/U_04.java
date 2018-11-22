@@ -20,6 +20,7 @@ public class U_04 extends AppCompatActivity {
         buttonReTouroku.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent(U_04.this,U_03.class);
+                startActivity(intent);
             }
         });
 
