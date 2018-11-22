@@ -1,5 +1,6 @@
 package jp.ac.asojuku.tatsuyayamaguchi;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,6 +38,8 @@ public class U_03 extends AppCompatActivity {
     }
 
 
+
+
     private void initSpinners(){
         Spinner spinneranke1 = (Spinner)findViewById(R.id.spinneranke1);
         Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
@@ -62,6 +65,8 @@ public class U_03 extends AppCompatActivity {
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
+
+
     }
 
 
@@ -74,12 +79,29 @@ public class U_03 extends AppCompatActivity {
         Spinner spinneranke1 = (Spinner) findViewById(R.id.spinneranke1);
         Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
         Spinner spinneranke3 = (Spinner) findViewById(R.id.spinneranke3);
+        String anke1 = spinneranke1.getSelectedItem().toString();
+        String anke2 = spinneranke2.getSelectedItem().toString();
+        String anke3 = spinneranke3.getSelectedItem().toString();
 
 
-        if (Weight != null) dbm.touroku(sqlDB, Weight);
+        if (Weight != null){
+            //String anke1 = spinneranke1.getSelectedItem().toString();
+            //String anke2 = spinneranke2.getSelectedItem().toString();
+            //String anke3 = spinneranke3.getSelectedItem().toString();
+            dbm.weighttouroku(sqlDB, Weight);
+            dbm.anke1touroku(sqlDB,anke1);
+            dbm.anke2touroku(sqlDB,anke2);
+            dbm.anke3touroku(sqlDB,anke3);
+            Intent intent = new Intent(U_03.this,U_08.class);
+
+        }
+        else{
+            Intent intent = new Intent(U_03.this,U_04.class);
+
+        }
 
         //user_weight.setText("");
-        Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
     }
 
 }
