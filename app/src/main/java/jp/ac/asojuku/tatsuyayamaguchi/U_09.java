@@ -84,6 +84,11 @@ public class U_09 extends AppCompatActivity {
             }
         }
     }
+    private int verify(Bitmap imageBitmap){
+        int result = 0;
+
+        return result;
+    }
 
     private void detectAndFrame(final Bitmap imageBitmap){
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -177,4 +182,5 @@ public class U_09 extends AppCompatActivity {
         }
         return bitmap;
     }
+
 }

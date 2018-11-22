@@ -35,7 +35,8 @@ public class U_03 extends AppCompatActivity {
         //buttonInsert.setOnClickListener(new View.OnClickListener() {
         //xxx
     }
-    @Override
+
+
     private void initSpinners(){
         Spinner spinneranke1 = (Spinner)findViewById(R.id.spinneranke1);
         Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
@@ -64,7 +65,7 @@ public class U_03 extends AppCompatActivity {
     }
 
 
-    @Override
+
     public void buttonInsert_click(View view) {
         //int message = user_weight.getText().toint();
         EditText editTextweight = (EditText) findViewById(R.id.editTextweight);
