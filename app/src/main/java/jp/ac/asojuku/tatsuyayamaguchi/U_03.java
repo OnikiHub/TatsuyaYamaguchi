@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class U_03 extends AppCompatActivity {
     private SQLiteDatabase sqlDB;
     DBManager dbm;
+    private  double update = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,6 @@ public class U_03 extends AppCompatActivity {
         //buttonInsert.setOnClickListener(new View.OnClickListener() {
         //xxxF
     }
-
-
 
 
     private void initSpinners(){

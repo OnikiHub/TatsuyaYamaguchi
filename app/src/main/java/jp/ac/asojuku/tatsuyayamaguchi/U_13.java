@@ -45,9 +45,9 @@ public class U_13 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_13);
-        String[] osake ={"ビール","芋焼酎","米焼酎","カクテル","ワイン"};
+        String[] osake ={"ビール","芋焼酎","ハイボール","カクテル","ワイン","米焼酎"};
         //int[] alcohol = {12,32,9,5,40};
-        String[] comment = {"発泡酒","芋","米","カクテル","ワイン"};
+        String[] comment = {"発泡酒","芋","ウイスキー","カクテル","果実酒","米"};
 
         List<Map<String, String>>data = new ArrayList<Map<String, String>>();
         for (int i=0; i<osake.length; i++) {
