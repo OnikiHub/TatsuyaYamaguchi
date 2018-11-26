@@ -13,9 +13,11 @@ import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.microsoft.projectoxford.face.*;
 import com.microsoft.projectoxford.face.contract.*;
@@ -51,13 +53,14 @@ public class U_09 extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent,"Select Picture"),PICK_IMAGE);
-            }
+                }
         });
 
         Button button2 = (Button)findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
 
 
@@ -84,8 +87,11 @@ public class U_09 extends AppCompatActivity {
             }
         }
     }
-    private int verify(Bitmap imageBitmap){
+    private int verify(){
         int result = 0;
+
+
+
 
         return result;
     }
@@ -94,6 +100,8 @@ public class U_09 extends AppCompatActivity {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
+        final FaceServiceClient.FaceAttributeType[] faceAttributes = {FaceServiceClient.FaceAttributeType.Age};
+
 
         AsyncTask<InputStream,String,Face[]> detectTask = new AsyncTask<InputStream, String, Face[]>() {
 
@@ -106,8 +114,27 @@ public class U_09 extends AppCompatActivity {
                             params[0],
                             true,
                             false,
-                            null
+                             faceAttributes
+
+
+
+
                     );
+
+                    for (Face face : result){
+                        FaceAttribute faceAttribute = face.faceAttributes;
+
+                        TextView textage = (TextView)findViewById(R.id.textViewage);
+                        textage.setText(String.valueOf(faceAttribute.age));
+                    }
+
+
+
+
+
+
+
+
                     if (result == null){
                         publishProgress("Detection Finished. Nothing detected");
                         return null;
