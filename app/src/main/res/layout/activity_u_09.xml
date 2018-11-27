@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="34dp">
 
         <ImageView
             android:id="@+id/imageView1"
@@ -39,14 +39,25 @@
 
         <TextView
             android:id="@+id/textViewage"
-            android:layout_width="305dp"
-            android:layout_height="96dp"
+            android:layout_width="295dp"
+            android:layout_height="54dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="32dp"
-            android:layout_marginStart="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="103dp"
+            android:layout_marginEnd="33dp"
             android:text="TextView"
             android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textViewre"
+            android:layout_width="107dp"
+            android:layout_height="34dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="36dp"
+            android:layout_marginStart="44dp"
+            android:text="TextView"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 
