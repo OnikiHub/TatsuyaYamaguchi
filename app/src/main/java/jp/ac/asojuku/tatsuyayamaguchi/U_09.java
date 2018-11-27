@@ -16,8 +16,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,6 +50,7 @@ public class U_09 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_09);
+
 
         Button button1 = (Button)findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +94,7 @@ public class U_09 extends AppCompatActivity {
             }
         }
     }
-    private void verify(final Face[] face01, final Face[] face02){
+    private String verify(final Face[] face01, final Face[] face02){
 
 
         class Faces{
@@ -101,10 +104,16 @@ public class U_09 extends AppCompatActivity {
 
         Faces faces = new Faces();
 
+        final EditText editText = findViewById(R.id.editText);
+
+
 
 
         AsyncTask<Faces,String,Double> verifyTask = new AsyncTask<Faces, String, Double>() {
             Double re;
+
+
+
             protected Double doInBackground(Faces... params) {
                 try {
                     Faces face = params[0];
@@ -136,30 +145,95 @@ public class U_09 extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Double aDouble) {
-                TextView textViewr = findViewById(R.id.textViewre);
-                textViewr.setText(String.valueOf(aDouble));
+                editText.setText(String.valueOf(aDouble));
+            }
+
+
+
+
+
+
+        };
+        SpannableStringBuilder sb = (SpannableStringBuilder)editText.getText();
+        String str = sb.toString();
+
+        return str;
+
+    }
+
+    private String detect (final Bitmap imageBitmap){
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
+        final FaceServiceClient.FaceAttributeType[] faceAttributes = {FaceServiceClient.FaceAttributeType.Age};
+        final EditText editTextid = findViewById(R.id.editTextId2);
+
+
+        AsyncTask<InputStream,String,Face[]> detectTask = new AsyncTask<InputStream, String, Face[]>() {
+            String exceptionMessage = "";
+            @Override
+            protected Face[] doInBackground(InputStream... params) {
+                try {
+                    Face[] result = faceServiceClient.detect(
+                            params[0],
+                            true,
+                            false,
+                            faceAttributes
+
+
+                    );
+
+                    for (Face face : result){
+                        editTextid.setText(String.valueOf(face.faceId));
+
+
+
+                    }
+
+
+
+
+                       return result;
+                }catch (Exception e){
+
+                }
+            }
+
+
+            @Override
+            protected void onPostExecute(Face[] result) {
+                detectionProgressDialog.dismiss();
+                if (!exceptionMessage.equals("")){
+                    showError(exceptionMessage);
+                }
+                if (result == null) return;
+                ImageView imageView = findViewById(R.id.imageView1);
+                imageView.setImageBitmap(drawFaceRectanglesOnBitmap(imageBitmap, result));
+                imageBitmap.recycle();
+
             }
         };
 
-
-
-
-
-
-
-
-    }
-
-    private void detect (final Bitmap imageBitmap){
+        detectTask.execute(inputStream);
+        SpannableStringBuilder sb = (SpannableStringBuilder)editTextid.getText();
+        String id1 = sb.toString();
+        return id1;
 
 
     }
+
+
+
+
+
+
 
     private void detectAndFrame(final Bitmap imageBitmap){
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
         final FaceServiceClient.FaceAttributeType[] faceAttributes = {FaceServiceClient.FaceAttributeType.Age};
+
 
 
         AsyncTask<InputStream,String,Face[]> detectTask = new AsyncTask<InputStream, String, Face[]>() {
