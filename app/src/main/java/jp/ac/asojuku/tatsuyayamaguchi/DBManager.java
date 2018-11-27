@@ -38,7 +38,9 @@ public class DBManager extends SQLiteOpenHelper{
         cv.put("anke3",inputanke3);
         sqLiteDatabase.insert("user",null,cv);
     }
-
-
-
+    public SQLiteCursor selectweight(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM user WHERE weight";
+        SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return cursor;
+    }
 }
