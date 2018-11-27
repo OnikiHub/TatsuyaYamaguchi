@@ -7,6 +7,21 @@
     tools:context=".U_08">
 
 
+    <Button
+        android:id="@+id/buttoncontent2"
+        android:layout_width="201dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:text="@string/clist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttoncontent" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
