@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jp.ac.asojuku.tatsuyayamaguchi" xmlns:tools="http://schemas.android.com/tools">
+<<<<<<<<< Temporary merge branch 1
+=========
 
+    <uses-sdk tools:overrideLibrary="com.microsoft.projectoxford.face"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+>>>>>>>>> Temporary merge branch 2
 
 
     <uses-sdk tools:overrideLibrary="com.microsoft.projectoxford.face"/>

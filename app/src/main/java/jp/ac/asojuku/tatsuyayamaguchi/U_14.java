@@ -38,7 +38,7 @@ public class U_14 extends AppCompatActivity {
     private double update2 = 0;
     private double update3 = 0;
     private double update4 = 0;
-    int weight = 65;
+    int weight ;
     int selectedID = -1;
     int lastPosition = -1;
     private AlarmManager am;
@@ -143,11 +143,11 @@ public class U_14 extends AppCompatActivity {
                 HashMap<String, Object> hashMap = (HashMap<String, Object>) parent.getItemAtPosition(position);
                 selectedID = position;
                 //キャストして受け取る(String,Integer,String)明日はここから↓↓
+                String osake = (String)hashMap.get("osake");
+                Integer value = (Integer)hashMap.get("alcohol");
+                String comment = (String)hashMap.get("comment");
+                Integer ml = (Integer)hashMap.get("ml");
 
-                String osake = (String) hashMap.get("osake");
-                Integer value = (Integer) hashMap.get("alcohol");
-                String comment = (String) hashMap.get("comment");
-                Integer ml = (Integer) hashMap.get("ml");
                 //ここで酔いの強さ（弱い1.4、普通1、強い0.5、普通より弱い1.2,普通より強い0.65）の四つに分ける
                 if (judment == 1) {
                     update = (ml * value * 1);
@@ -156,56 +156,9 @@ public class U_14 extends AppCompatActivity {
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
-
-
-                String osake = (String)hashMap.get("osake");
-                Integer value = (Integer)hashMap.get("alcohol");
-                String comment = (String)hashMap.get("comment");
-                Integer ml = (Integer)hashMap.get("ml");
-
-                update = (ml * value * 1) ;
-                update2 = (833 * 52) ;
-                update3 = update / update2 ;
-                update4 = update3 + update4;
-                double d3 = update4;
-                BigDecimal bd = new BigDecimal(String.valueOf(d3));
-
-
-                TextView updatatext = (TextView)findViewById(R.id.updatatext);
-                updatatext.setText(String.valueOf(d3)+"%");
-                if (update4 < 0.05) {
-                    BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                    TextView control = (TextView) findViewById(R.id.control);
-                    updatatext.setText(bd3.doubleValue() + "%です。" + "爽快期");
-                }else if (update4 < 0.10) {
-                    BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                    TextView control = (TextView) findViewById(R.id.control);
-                    updatatext.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
-                }else if (update4 < 0.15) {
-                    BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                    TextView control = (TextView) findViewById(R.id.control);
-                    updatatext.setText(bd3.doubleValue() + "%" + "酩酊初期");
-                }else if (update4 < 0.30) {
-                    BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                    TextView control = (TextView) findViewById(R.id.control);
-                    updatatext.setText(bd3.doubleValue() + "%" + "酩酊期");
-                }else if (update4 < 0.40) {
-                    BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                    TextView control = (TextView) findViewById(R.id.control);
-                    updatatext.setText(bd3.doubleValue() + "%" + "泥酔期");
-                }else if (update4 < 0.50) {
-                    BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                    TextView control = (TextView) findViewById(R.id.control);
-                    updatatext.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
-                }else if (update4 >= 0.51){
-                    BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                    TextView control = (TextView)findViewById(R.id.control);
-                    updatatext.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
-                }
-
-
                     TextView updatatext = (TextView) findViewById(R.id.updatatext);
                     updatatext.setText(String.valueOf(d3) + "%");
+
                     if (update4 < 0.05) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView control = (TextView) findViewById(R.id.control);
@@ -245,10 +198,9 @@ public class U_14 extends AppCompatActivity {
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
-
-
                     TextView updatatext = (TextView) findViewById(R.id.updatatext);
                     updatatext.setText(String.valueOf(d3) + "%");
+
                     if (update4 < 0.05) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView control = (TextView) findViewById(R.id.control);
@@ -281,16 +233,15 @@ public class U_14 extends AppCompatActivity {
                     hashMap.get(position);
                     lastPosition = position;
                 } else if (judment == 3) {
-                    update = (ml * value * 1);
+                    update = (ml * value * 0.5);
                     update2 = (833 * weight);
                     update3 = update / update2;
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
-
-
                     TextView updatatext = (TextView) findViewById(R.id.updatatext);
                     updatatext.setText(String.valueOf(d3) + "%");
+
                     if (update4 < 0.05) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView control = (TextView) findViewById(R.id.control);
@@ -323,16 +274,15 @@ public class U_14 extends AppCompatActivity {
                     hashMap.get(position);
                     lastPosition = position;
                 } else if (judment == 4) {
-                    update = (ml * value * 0.5);
+                    update = (ml * value * 1.2);
                     update2 = (833 * weight);
                     update3 = update / update2;
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
-
-
                     TextView updatatext = (TextView) findViewById(R.id.updatatext);
                     updatatext.setText(String.valueOf(d3) + "%");
+
                     if (update4 < 0.05) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView control = (TextView) findViewById(R.id.control);
@@ -364,59 +314,17 @@ public class U_14 extends AppCompatActivity {
                     }
                     hashMap.get(position);
                     lastPosition = position;
+
                 } else if (judment == 5) {
-                    update = (ml * value * 1.25);
-                    update2 = (833 * weight);
-                    update3 = update / update2;
-                    update4 = update3 + update4;
-                    double d3 = update4;
-                    BigDecimal bd = new BigDecimal(String.valueOf(d3));
-
-
-                    TextView updatatext = (TextView) findViewById(R.id.updatatext);
-                    updatatext.setText(String.valueOf(d3) + "%");
-                    if (update4 < 0.05) {
-                        BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                        TextView control = (TextView) findViewById(R.id.control);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "爽快期");
-                    } else if (update4 < 0.10) {
-                        BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                        TextView control = (TextView) findViewById(R.id.control);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
-                    } else if (update4 < 0.15) {
-                        BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                        TextView control = (TextView) findViewById(R.id.control);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊初期");
-                    } else if (update4 < 0.30) {
-                        BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                        TextView control = (TextView) findViewById(R.id.control);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊期");
-                    } else if (update4 < 0.40) {
-                        BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                        TextView control = (TextView) findViewById(R.id.control);
-                        updatatext.setText(bd3.doubleValue() + "%" + "泥酔期");
-                    } else if (update4 < 0.50) {
-                        BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                        TextView control = (TextView) findViewById(R.id.control);
-                        updatatext.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
-                    } else if (update4 >= 0.51) {
-                        BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
-                        TextView control = (TextView) findViewById(R.id.control);
-                        updatatext.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
-                    }
-                    hashMap.get(position);
-                    lastPosition = position;
-                } else if (judment == 6) {
                     update = (ml * value * 0.65);
                     update2 = (833 * weight);
                     update3 = update / update2;
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
-
-
                     TextView updatatext = (TextView) findViewById(R.id.updatatext);
                     updatatext.setText(String.valueOf(d3) + "%");
+
                     if (update4 < 0.05) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView control = (TextView) findViewById(R.id.control);
