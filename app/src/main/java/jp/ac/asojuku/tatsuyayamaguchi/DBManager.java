@@ -36,7 +36,7 @@ public class DBManager extends SQLiteOpenHelper{
         cv.put("anke1",inputanke1);
         cv.put("anke2",inputanke2);
         cv.put("anke3",inputanke3);
-        sqLiteDatabase.insert("user",null,cv);
+        sqLiteDatabase.insert("user",AAnull,cv);
     }
 
 
