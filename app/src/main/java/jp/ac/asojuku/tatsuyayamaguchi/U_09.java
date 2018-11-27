@@ -8,11 +8,13 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.media.FaceDetector;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +32,7 @@ import java.io.InputStream;
 
 
 import java.net.URL;
-
+import java.util.UUID;
 
 
 public class U_09 extends AppCompatActivity {
@@ -46,6 +48,7 @@ public class U_09 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_09);
+
         Button button1 = (Button)findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +63,7 @@ public class U_09 extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
 
 
@@ -87,13 +91,68 @@ public class U_09 extends AppCompatActivity {
             }
         }
     }
-    private int verify(){
-        int result = 0;
+    private void verify(final Face[] face01, final Face[] face02){
+
+
+        class Faces{
+            Face[] face1 =face01;
+            Face[] face2 =face02;
+        }
+
+        Faces faces = new Faces();
+
+
+
+        AsyncTask<Faces,String,Double> verifyTask = new AsyncTask<Faces, String, Double>() {
+            Double re;
+            protected Double doInBackground(Faces... params) {
+                try {
+                    Faces face = params[0];
+                    Face[] facedata1 = face.face1;
+                    Face[] facedata2 = face.face2;
+                    UUID faceId1 = null;
+                    UUID faceId2 = null;
+                    for (Face faces : facedata1) {
+                        faceId1 = faces.faceId;
+
+                    }
+
+                    for (Face faces : facedata2) {
+                        faceId2 = faces.faceId;
+                    }
+
+                    VerifyResult result1 = faceServiceClient.verify(faceId1, faceId2);
+                    re=result1.confidence;
 
 
 
 
-        return result;
+                }catch (Exception e){
+
+                }
+                return re;
+
+            }
+
+            @Override
+            protected void onPostExecute(Double aDouble) {
+                TextView textViewr = findViewById(R.id.textViewre);
+                textViewr.setText(String.valueOf(aDouble));
+            }
+        };
+
+
+
+
+
+
+
+
+    }
+
+    private void detect (final Bitmap imageBitmap){
+
+
     }
 
     private void detectAndFrame(final Bitmap imageBitmap){
