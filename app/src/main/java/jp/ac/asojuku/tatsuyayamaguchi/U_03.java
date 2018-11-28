@@ -28,14 +28,14 @@ public class U_03 extends AppCompatActivity {
 
         EditText editTextweight = (EditText) findViewById(R.id.editTextweight);
         final String weight = editTextweight.getText().toString();
-        int Weight = Integer.parseInt(weight);
+        //int Weight = Integer.parseInt(weight);
 
         Button buttonInsert = (Button) findViewById(R.id.buttonInsert);
 
         //buttonInsert.setOnClickListener(new View.OnClickListener() {
         //xxx
     }
-    @Override
+
     private void initSpinners(){
         Spinner spinneranke1 = (Spinner)findViewById(R.id.spinneranke1);
         Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
@@ -64,7 +64,7 @@ public class U_03 extends AppCompatActivity {
     }
 
 
-    @Override
+
     public void buttonInsert_click(View view) {
         //int message = user_weight.getText().toint();
         EditText editTextweight = (EditText) findViewById(R.id.editTextweight);
@@ -75,7 +75,7 @@ public class U_03 extends AppCompatActivity {
         Spinner spinneranke3 = (Spinner) findViewById(R.id.spinneranke3);
 
 
-        if (Weight != null) dbm.touroku(sqlDB, Weight);
+        //if (Weight != null) dbm.touroku(sqlDB, Weight);
 
         //user_weight.setText("");
         Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
