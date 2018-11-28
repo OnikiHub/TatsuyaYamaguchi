@@ -161,6 +161,7 @@ public class U_09 extends AppCompatActivity {
 
 
         };
+        verifyTask.execute(faces);
         SpannableStringBuilder sb = (SpannableStringBuilder)editText.getText();
         String str = sb.toString();
 
@@ -173,15 +174,16 @@ public class U_09 extends AppCompatActivity {
         imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
         final FaceServiceClient.FaceAttributeType[] faceAttributes = {FaceServiceClient.FaceAttributeType.Age};
-        final EditText editTextid = findViewById(R.id.editTextId2);
+        final EditText editTextid = findViewById(R.id.editTextId1);
 
 
         AsyncTask<InputStream,String,Face[]> detectTask = new AsyncTask<InputStream, String, Face[]>() {
             String exceptionMessage = "";
+            Face[] result;
             @Override
             protected Face[] doInBackground(InputStream... params) {
                 try {
-                    Face[] result = faceServiceClient.detect(
+                    result = faceServiceClient.detect(
                             params[0],
                             true,
                             false,
@@ -200,25 +202,20 @@ public class U_09 extends AppCompatActivity {
 
 
 
-                       return result;
+
                 }catch (Exception e){
 
                 }
-            }
+                return result;
 
 
-            @Override
-            protected void onPostExecute(Face[] result) {
-                detectionProgressDialog.dismiss();
-                if (!exceptionMessage.equals("")){
-                    showError(exceptionMessage);
-                }
-                if (result == null) return;
-                ImageView imageView = findViewById(R.id.imageView1);
-                imageView.setImageBitmap(drawFaceRectanglesOnBitmap(imageBitmap, result));
-                imageBitmap.recycle();
 
             }
+
+
+
+
+
         };
 
         detectTask.execute(inputStream);
