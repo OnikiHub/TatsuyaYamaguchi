@@ -4,7 +4,9 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -52,6 +54,7 @@ public class U_09 extends AppCompatActivity {
         setContentView(R.layout.activity_u_09);
 
 
+        final EditText editTextid2 = findViewById(R.id.editTextId2);
         Button button1 = (Button)findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +69,16 @@ public class U_09 extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Resources r = getResources();
+                Bitmap bmp = BitmapFactory.decodeResource(r,R.drawable.tatsuya);
+                String id1 = detect(bmp);
+
+
+                SpannableStringBuilder sb = (SpannableStringBuilder)editTextid2.getText();
+                String id2 = sb.toString();
+
+                String fre = verify(id1,id2);
+
 
 
 
@@ -94,41 +107,35 @@ public class U_09 extends AppCompatActivity {
             }
         }
     }
-    private String verify(final Face[] face01, final Face[] face02){
+    private String verify(final String id1, final  String id2){
 
 
-        class Faces{
-            Face[] face1 =face01;
-            Face[] face2 =face02;
+        class Faceids{
+            String face1 =id1;
+            String face2 =id2;
         }
 
-        Faces faces = new Faces();
+        Faceids faces = new Faceids();
 
         final EditText editText = findViewById(R.id.editText);
 
 
 
 
-        AsyncTask<Faces,String,Double> verifyTask = new AsyncTask<Faces, String, Double>() {
+        AsyncTask<Faceids,String,Double> verifyTask = new AsyncTask<Faceids, String, Double>() {
             Double re;
 
 
 
-            protected Double doInBackground(Faces... params) {
+            protected Double doInBackground(Faceids... params) {
                 try {
-                    Faces face = params[0];
-                    Face[] facedata1 = face.face1;
-                    Face[] facedata2 = face.face2;
-                    UUID faceId1 = null;
-                    UUID faceId2 = null;
-                    for (Face faces : facedata1) {
-                        faceId1 = faces.faceId;
+                    Faceids face = params[0];
+                    String facedata1 = face.face1;
+                    String facedata2 = face.face2;
 
-                    }
+                    UUID faceId1 = UUID.fromString(facedata1);
+                    UUID faceId2 = UUID.fromString(facedata2);
 
-                    for (Face faces : facedata2) {
-                        faceId2 = faces.faceId;
-                    }
 
                     VerifyResult result1 = faceServiceClient.verify(faceId1, faceId2);
                     re=result1.confidence;
@@ -233,6 +240,7 @@ public class U_09 extends AppCompatActivity {
         imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
         final FaceServiceClient.FaceAttributeType[] faceAttributes = {FaceServiceClient.FaceAttributeType.Age};
+        final EditText editText = findViewById(R.id.editTextId2);
 
 
 
@@ -256,6 +264,9 @@ public class U_09 extends AppCompatActivity {
 
                     for (Face face : result){
                         FaceAttribute faceAttribute = face.faceAttributes;
+
+
+                        editText.setText(String.valueOf(face.faceId));
 
                         TextView textage = (TextView)findViewById(R.id.textViewage);
                         textage.setText(String.valueOf(faceAttribute.age));
