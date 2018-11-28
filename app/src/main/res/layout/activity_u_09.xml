@@ -8,11 +8,12 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="34dp">
+        tools:layout_editor_absoluteY="38dp">
 
         <ImageView
             android:id="@+id/imageView1"
@@ -39,27 +40,50 @@
 
         <TextView
             android:id="@+id/textViewage"
-            android:layout_width="295dp"
-            android:layout_height="54dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="103dp"
-            android:layout_marginEnd="33dp"
+            android:layout_width="123dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button1"
+            android:layout_marginTop="-164dp"
             android:text="TextView"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textViewre"
-            android:layout_width="107dp"
-            android:layout_height="34dp"
+        <EditText
+            android:id="@+id/editTextId1"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="36dp"
-            android:layout_marginStart="44dp"
-            android:text="TextView"
-            android:textSize="12sp" />
+            android:layout_marginBottom="54dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <EditText
+            android:id="@+id/editTextId2"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/editTextId1"
+            android:layout_marginEnd="2dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
 
     </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.746" />
 
 
 </android.support.constraint.ConstraintLayout>
