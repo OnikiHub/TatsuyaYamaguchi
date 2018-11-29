@@ -11,17 +11,19 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="38dp">
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
 
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="match_parent"
-            android:layout_height="357dp"
-            android:layout_above="@+id/button1"
-            android:layout_marginBottom="106dp"
+            android:layout_height="175dp"
             android:contentDescription="Image with faces to analyze" />
+
 
         <Button
             android:id="@+id/button1"
@@ -37,6 +39,19 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:text="Browse for face image" />
+
+        <Button
+            android:id="@+id/buttonsend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editTextId1"
+            android:layout_toEndOf="@+id/editTextId1"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="631dp" />
 
         <TextView
             android:id="@+id/textViewage"
@@ -68,6 +83,15 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
+
+        <Button
+            android:id="@+id/buttoncomp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editTextId1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="25dp"
+            android:text="Button" />
 
     </RelativeLayout>
 

@@ -32,7 +32,8 @@
         <activity android:name=".U_10" />
         <activity android:name=".U_11" />
         <activity android:name=".U_12" />
-        <activity android:name=".U_13" >
+        <activity android:name=".U_13" />
+        <activity android:name=".U_08" >
         <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
@@ -41,7 +42,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>>
         </activity>
-        <activity android:name=".U_08" />
+
         <activity android:name=".U_03" />
 
 
