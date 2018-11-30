@@ -26,7 +26,7 @@
 
 
     Strings related to login
-    <string name="osaketap">飲んだお酒をタップしてください</string>
+    <string name="osaketap">お酒の種類</string>
     <string name="clist">コンテンツ一覧</string>
     <string name="logout">ログアウト</string>
 
