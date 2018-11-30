@@ -43,6 +43,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>>
 
+
         </activity>>
         <activity android:name=".U_14" />
         <activity android:name=".U_15" />

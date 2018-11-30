@@ -54,7 +54,12 @@ public class U_09 extends AppCompatActivity {
         setContentView(R.layout.activity_u_09);
 
 
+
+
+
         final EditText editTextid2 = findViewById(R.id.editTextId2);
+        final EditText editTextid1= findViewById(R.id.editTextId1);
+        final EditText editTextre = findViewById(R.id.editText);
         Button button1 = (Button)findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,20 +74,58 @@ public class U_09 extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //ImageView imageView = findViewById(R.id.imageView2);
+                //imageView.setImageBitmap(bmp);
+                //tatsuyaID
                 Resources r = getResources();
                 Bitmap bmp = BitmapFactory.decodeResource(r,R.drawable.tatsuya);
-                String id1 = detect(bmp);
-
-
-                SpannableStringBuilder sb = (SpannableStringBuilder)editTextid2.getText();
-                String id2 = sb.toString();
-
-                String fre = verify(id1,id2);
+                detect(bmp);
 
 
 
 
+                //Intent intent = new Intent(U_09.this,U_10.class);
+                //intent.putExtra("result",fre);
+                //startActivity(intent);
 
+
+
+
+
+
+
+            }
+        });
+
+        Button buttons = (Button)findViewById(R.id.buttonsend);
+        buttons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SpannableStringBuilder sb = (SpannableStringBuilder)editTextid1.getText();
+                String id1 = sb.toString();
+
+
+                SpannableStringBuilder sb2 = (SpannableStringBuilder)editTextid2.getText();
+                //ゲストID
+                String id2 = sb2.toString();
+
+                verify(id1,id2);
+
+
+            }
+        });
+
+        Button buttonc = (Button)findViewById(R.id.buttoncomp);
+        buttonc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SpannableStringBuilder sb = (SpannableStringBuilder)editTextre.getText();
+                String str = sb.toString();
+                Intent intent = new Intent(U_09.this,U_10.class);
+                intent.putExtra("result",str);
+                startActivity(intent);
 
 
             }
@@ -107,7 +150,7 @@ public class U_09 extends AppCompatActivity {
             }
         }
     }
-    private String verify(final String id1, final  String id2){
+    private void verify(final String id1, final  String id2){
 
 
         class Faceids{
@@ -138,7 +181,10 @@ public class U_09 extends AppCompatActivity {
 
 
                     VerifyResult result1 = faceServiceClient.verify(faceId1, faceId2);
-                    re=result1.confidence;
+                    re = result1.confidence;
+
+                    //editText.setText(String.valueOf(result1.confidence));
+
 
 
 
@@ -153,6 +199,7 @@ public class U_09 extends AppCompatActivity {
             @Override
             protected void onPostExecute(Double aDouble) {
                 editText.setText(String.valueOf(aDouble));
+
             }
 
 
@@ -162,14 +209,12 @@ public class U_09 extends AppCompatActivity {
 
         };
         verifyTask.execute(faces);
-        SpannableStringBuilder sb = (SpannableStringBuilder)editText.getText();
-        String str = sb.toString();
 
-        return str;
+
 
     }
 
-    private String detect (final Bitmap imageBitmap){
+    private void detect (final Bitmap imageBitmap){
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
@@ -219,9 +264,8 @@ public class U_09 extends AppCompatActivity {
         };
 
         detectTask.execute(inputStream);
-        SpannableStringBuilder sb = (SpannableStringBuilder)editTextid.getText();
-        String id1 = sb.toString();
-        return id1;
+
+
 
 
     }
