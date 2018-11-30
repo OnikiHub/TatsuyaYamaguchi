@@ -40,19 +40,25 @@ public class U_14 extends AppCompatActivity {
     private double update2 = 0;
     private double update3 = 0;
     private double update4 = 0;
-    int weight = 75;
+    int weight = 0;
     int selectedID = -1;
     int lastPosition = -1;
     private AlarmManager am;
     private PendingIntent pending;
     private int requestCode = 1;
-    int judment = 2;
+    int judment = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_14);
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
 
+        SQLiteCursor cursor = dbm.selectwe(sqlDB);
+        cursor.moveToFirst();
+        weight=cursor.getInt(1);
+        judment=cursor.getInt(2);
             String[] osake = {"ビール", "芋焼酎", "ハイボール", "カクテル", "ワイン", "米焼酎","日本酒","テキーラ","サワー"};
             Integer[] alcohol = {5, 25, 20, 4, 14, 7, 15, 40 , 5};
             String[] comment = {"発泡酒", "芋", "ウイスキー", "カクテル", "果実酒", "米","","竜舌蘭","焼酎"};

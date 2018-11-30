@@ -17,6 +17,9 @@ public class U_08 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_08);
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
+
 
 
     }
@@ -24,6 +27,11 @@ public class U_08 extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        /*TextView textView = findViewById(R.id.textViewww);
+        SQLiteCursor cursor = dbm.selectwe(sqlDB);
+        cursor.moveToFirst();
+        textView.setText(cursor.getInt(0));*/
 
         Button buttonpicture = (Button)findViewById(R.id.buttonpic);
         buttonpicture.setOnClickListener(new View.OnClickListener() {

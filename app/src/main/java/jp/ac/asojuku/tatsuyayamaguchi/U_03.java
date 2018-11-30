@@ -89,6 +89,7 @@ public class U_03 extends AppCompatActivity {
             startActivity(intent);
 
         }else{
+            //ここまで処理が行かないので落ちる。日本語
             Intent intent = new Intent(U_03.this,U_04.class);
             startActivity(intent);
         }
