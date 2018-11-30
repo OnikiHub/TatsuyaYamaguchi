@@ -127,6 +127,7 @@ public class U_14 extends AppCompatActivity {
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
+                    //ここdw
                     /*TextView updatetext = (TextView) findViewById(R.id.updatatext);
                     updatetext.setText(String.valueOf(d3) + "%");*/
                     if (update4 < 0.05) {
