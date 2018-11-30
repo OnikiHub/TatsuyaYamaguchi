@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.IntegerRes;
 
 public class DBManager extends SQLiteOpenHelper{
-    public DBManager(Context context) { super(context,"Tatsuya",null,1);}
+    public DBManager(Context context) { super(context,"1601116.sqlite3",null,1);}
 
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE IF NOT EXISTS user(_id INTEGER PRIMARY KEY AUTOINCREMENT,weight INTEGER,level INTEGER　default '1',anke1 TEXT,anke2 TEXT,anke3 TEXT)");
@@ -44,15 +44,16 @@ public class DBManager extends SQLiteOpenHelper{
         return cursor;
     }
 
-    public SQLiteCursor selectwe(SQLiteDatabase sqLiteDatabase){
-        String selectSql = "SELECT weight FROM user ";
+    public SQLiteCursor selectUser(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM user ";
         SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor;
     }
 
 
     public void updateLevel(SQLiteDatabase sqLiteDatabase,Integer level){
-        String sql = "UPDATE user set level=";
+        String sql = "UPDATE user SET level=?";
+        sqLiteDatabase.execSQL(sql,new String[level]);
     }
 
 
