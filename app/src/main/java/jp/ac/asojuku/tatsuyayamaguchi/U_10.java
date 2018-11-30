@@ -47,7 +47,7 @@ public class U_10 extends AppCompatActivity {
             textViewre.setText("レベル5");
         }
 
-        SQLiteCursor cursor = dbm.selectUser(sqlDB);
+        SQLiteCursor cursor = dbm.selectwe(sqlDB);
         cursor.moveToFirst();
         textViewwe.setText(cursor.getInt(1));
 
