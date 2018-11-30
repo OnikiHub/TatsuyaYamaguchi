@@ -21,7 +21,7 @@ public class U_08 extends AppCompatActivity {
         sqlDB = dbm.getWritableDatabase();
 
         TextView textView = findViewById(R.id.textViewww);
-        SQLiteCursor cursor = dbm.selectwe(sqlDB);
+        SQLiteCursor cursor = dbm.selectUser(sqlDB);
         cursor.moveToFirst();
         textView.setText(String.valueOf(cursor.getInt(0)));
 

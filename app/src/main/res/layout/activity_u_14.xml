@@ -8,20 +8,6 @@
     tools:layout_editor_absoluteY="81dp">
 
 
-    <!--<Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/buttoninsert2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
-
     <Button
         android:id="@+id/buttoninsert2"
         android:layout_width="wrap_content"
@@ -53,20 +39,6 @@
     </ListView>
 
     <TextView
-        android:id="@+id/control"
-        android:layout_width="176dp"
-        android:layout_height="26dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginStart="8dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updatatext" />
-
-    <TextView
         android:id="@+id/updatatext"
         android:layout_width="184dp"
         android:layout_height="40dp"
@@ -88,13 +60,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/holo_red_light"
         android:onClick="onStop"
         android:text="STOP"
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/control" />
+        app:layout_constraintTop_toBottomOf="@+id/updatatext" />
 
 </android.support.constraint.ConstraintLayout>
