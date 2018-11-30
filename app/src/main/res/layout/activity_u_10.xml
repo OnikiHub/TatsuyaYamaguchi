@@ -14,10 +14,49 @@
         android:layout_marginLeft="80dp"
         android:layout_marginRight="99dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="141dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewresult"
+        android:layout_width="168dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginLeft="163dp"
+        android:layout_marginRight="163dp"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="88dp"
+        android:text="TextView"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="86dp" />
+
+    <TextView
+        android:id="@+id/textViewwe"
+        android:layout_width="166dp"
+        android:layout_height="91dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginLeft="109dp"
+        android:layout_marginRight="109dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="103dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewresult" />
 </android.support.constraint.ConstraintLayout>

@@ -82,8 +82,8 @@ public class U_03 extends AppCompatActivity {
         if (weight != null &&weight.length() >0) {
             Integer Weight = Integer.parseInt(weight);
             String anke1 = spinneranke1.getSelectedItem().toString();
-            String anke2 = spinneranke1.getSelectedItem().toString();
-            String anke3 = spinneranke1.getSelectedItem().toString();
+            String anke2 = spinneranke2.getSelectedItem().toString();
+            String anke3 = spinneranke3.getSelectedItem().toString();
             dbm.usertouroku(sqlDB, Weight, anke1, anke2, anke3);
             Intent intent = new Intent(U_03.this,U_08.class);
             startActivity(intent);

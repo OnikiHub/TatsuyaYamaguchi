@@ -123,6 +123,10 @@ public class U_09 extends AppCompatActivity {
 
                 SpannableStringBuilder sb = (SpannableStringBuilder)editTextre.getText();
                 String str = sb.toString();
+                Intent intent = new Intent(U_09.this,U_10.class);
+                intent.putExtra("result",str);
+                startActivity(intent);
+
 
             }
         });
