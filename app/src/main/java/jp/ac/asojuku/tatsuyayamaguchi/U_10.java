@@ -30,6 +30,12 @@ public class U_10 extends AppCompatActivity {
         TextView textView = findViewById(R.id.textView8);
         textView.setText(result);
         TextView textViewwe = findViewById(R.id.textViewwe);
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
+
+
+
+
 
 
         TextView textViewre = findViewById(R.id.textViewresult);
@@ -37,19 +43,25 @@ public class U_10 extends AppCompatActivity {
 
         if (jre <= 0.1){
             textViewre.setText("レベル1");
+            dbm.updateLevel(sqlDB,1);
         }else if(jre <=0.2){
             textViewre.setText("レベル2");
+            dbm.updateLevel(sqlDB,2);
         }else if(jre <=0.4){
             textViewre.setText("レベル3");
+            dbm.updateLevel(sqlDB,3);
         }else if(jre <=0.6){
             textViewre.setText("レベル4");
+            dbm.updateLevel(sqlDB,4);
         }else {
             textViewre.setText("レベル5");
+            dbm.updateLevel(sqlDB,5);
         }
 
-        SQLiteCursor cursor = dbm.selectwe(sqlDB);
-        cursor.moveToFirst();
-        textViewwe.setText(cursor.getInt(1));
+        //SQLiteCursor cursor = dbm.selectUser(sqlDB);
+        //cursor.moveToFirst();
+        //textViewwe.setText(String.valueOf(cursor.getInt(2)));
+
 
 
     }

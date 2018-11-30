@@ -20,10 +20,7 @@ public class U_08 extends AppCompatActivity {
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
 
-        TextView textView = findViewById(R.id.textViewww);
-        SQLiteCursor cursor = dbm.selectwe(sqlDB);
-        cursor.moveToFirst();
-        textView.setText(String.valueOf(cursor.getInt(0)));
+
 
     }
 
@@ -80,6 +77,13 @@ public class U_08 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        TextView textView = findViewById(R.id.textViewww);
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
+        //SQLiteCursor cursor = dbm.selectwe(sqlDB);
+        //cursor.moveToFirst();
+
         /*Button button3    = (Button)findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
