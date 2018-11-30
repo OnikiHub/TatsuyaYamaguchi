@@ -14,6 +14,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
         android:text="@string/logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -63,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="247dp"
         android:layout_marginTop="12dp"
-        android:background="@android:color/background_light"
+        android:background="@android:color/darker_gray"
         android:divider="#ff4444"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"

@@ -40,41 +40,23 @@ public class U_14 extends AppCompatActivity {
     private double update2 = 0;
     private double update3 = 0;
     private double update4 = 0;
-    int weight = 62;
+    int weight = 75;
     int selectedID = -1;
     int lastPosition = -1;
     private AlarmManager am;
     private PendingIntent pending;
     private int requestCode = 1;
-    int judment = 1;
-   /* private Calendar setAlarmTime() {
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.add(Calendar.SECOND, 5);
-        private PendingIntent setAlarmPendingIntent(Int) {
-
-            Intent intent = new Intent(getApplicationContext(), MyIntentService.class);
-            intent.putExtra("ALARM_FLAG", flags);
-            PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 0, intent, flags);
-
-            return pendingIntent;
-        }
-
-        return calendar;
-    }*/
-
-
+    int judment = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_14);
 
-            String[] osake = {"ビール", "芋焼酎", "ハイボール", "カクテル", "ワイン", "米焼酎"};
-            Integer[] alcohol = {5, 25, 20, 4, 14, 7};
-            String[] comment = {"発泡酒", "芋", "ウイスキー", "カクテル", "果実酒", "米"};
-            Integer[] ml = {400, 150, 350, 350, 120, 150};
+            String[] osake = {"ビール", "芋焼酎", "ハイボール", "カクテル", "ワイン", "米焼酎","日本酒","テキーラ","サワー"};
+            Integer[] alcohol = {5, 25, 20, 4, 14, 7, 15, 40 , 5};
+            String[] comment = {"発泡酒", "芋", "ウイスキー", "カクテル", "果実酒", "米","","竜舌蘭","焼酎"};
+            Integer[] ml = {400, 150, 350, 350, 120, 150, 180, 50, 350};
 
             List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
                 for (int i = 0; i < osake.length; i++) {
@@ -100,6 +82,8 @@ public class U_14 extends AppCompatActivity {
         public  void onStop(View v){
             ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).cancel();
         }
+
+        
 
 
     @Override
@@ -128,7 +112,7 @@ public class U_14 extends AppCompatActivity {
                 String comment = (String)hashMap.get("comment");
                 Integer ml = (Integer)hashMap.get("ml");
 
-                //ここで酔いの強さ（弱い1.4、普通1、強い0.5、普通より弱い1.2,普通より強い0.65）の四つに分ける
+                //ここで酔いの強さ（弱い2、普通1、強い0.5、普通より弱い1.2,普通より強い0.65）の四つに分ける
                 if (judment == 1) {
                     update = (ml * value * 1);
                     update2 = (833 * weight);
@@ -178,7 +162,7 @@ public class U_14 extends AppCompatActivity {
                     lastPosition = position;
 
                 } else if (judment == 2) {
-                    update = (ml * value * 1.4);
+                    update = (ml * value * 2);
                     update2 = (833 * weight);
                     update3 = update / update2;
                     update4 = update3 + update4;
