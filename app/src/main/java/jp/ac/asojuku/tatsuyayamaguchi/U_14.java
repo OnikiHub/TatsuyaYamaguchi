@@ -46,7 +46,9 @@ public class U_14 extends AppCompatActivity {
     private AlarmManager am;
     private PendingIntent pending;
     private int requestCode = 1;
+
     int judment = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,9 @@ public class U_14 extends AppCompatActivity {
         setContentView(R.layout.activity_u_14);
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
+
         //DBから取得
+
         SQLiteCursor cursor = dbm.selectUser(sqlDB);
         cursor.moveToFirst();
         weight=cursor.getInt(1);
