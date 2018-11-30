@@ -46,7 +46,7 @@ public class U_14 extends AppCompatActivity {
     private AlarmManager am;
     private PendingIntent pending;
     private int requestCode = 1;
-    int judment = 0;
+    int judment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class U_14 extends AppCompatActivity {
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
 
-        SQLiteCursor cursor = dbm.selectwe(sqlDB);
+        SQLiteCursor cursor = dbm.selectUser(sqlDB);
         cursor.moveToFirst();
         weight=cursor.getInt(1);
         judment=cursor.getInt(2);
