@@ -179,41 +179,41 @@ public class U_14 extends AppCompatActivity {
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
-                    TextView updatatext = (TextView) findViewById(R.id.updatatext);
+                    /*TextView updatatext = (TextView) findViewById(R.id.updatatext);
                     updatatext.setText(String.valueOf(d3) + "%");
-
+*/
                     if (update4 < 0.05) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "爽快期");
+                        textView.setText(bd3.doubleValue() + "%です。" + "爽快期");
                     } else if (update4 < 0.10) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
+                        textView.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
                     } else if (update4 < 0.15) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊初期");
+                        textView.setText(bd3.doubleValue() + "%" + "酩酊初期");
                     } else if (update4 < 0.30) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊期");
+                        textView.setText(bd3.doubleValue() + "%" + "酩酊期");
                     } else if (update4 < 0.40) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "泥酔期");
+                        textView.setText(bd3.doubleValue() + "%" + "泥酔期");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,100},0);
                     } else if (update4 < 0.50) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
+                        textView.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,500},0);
                     } else if (update4 >= 0.51) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
+                        textView.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,1000},0);
                     }
@@ -226,41 +226,41 @@ public class U_14 extends AppCompatActivity {
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
-                    TextView updatatext = (TextView) findViewById(R.id.updatatext);
+                    /*TextView updatatext = (TextView) findViewById(R.id.updatatext);
                     updatatext.setText(String.valueOf(d3) + "%");
-
+*/
                     if (update4 < 0.05) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "爽快期");
+                        textView.setText(bd3.doubleValue() + "%です。" + "爽快期");
                     } else if (update4 < 0.10) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
+                        textView.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
                     } else if (update4 < 0.15) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊初期");
+                        textView.setText(bd3.doubleValue() + "%" + "酩酊初期");
                     } else if (update4 < 0.30) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊期");
+                        textView.setText(bd3.doubleValue() + "%" + "酩酊期");
                     } else if (update4 < 0.40) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "泥酔期");
+                        textView.setText(bd3.doubleValue() + "%" + "泥酔期");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,100},0);
                     } else if (update4 < 0.50) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
+                        textView.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,500},0);
                     } else if (update4 >= 0.51) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
+                        textView.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,1000},0);
                     }
@@ -273,41 +273,41 @@ public class U_14 extends AppCompatActivity {
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
-                    TextView updatatext = (TextView) findViewById(R.id.updatatext);
+                    /*TextView updatatext = (TextView) findViewById(R.id.updatatext);
                     updatatext.setText(String.valueOf(d3) + "%");
-
+*/
                     if (update4 < 0.05) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "爽快期");
+                        textView.setText(bd3.doubleValue() + "%です。" + "爽快期");
                     } else if (update4 < 0.10) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
+                        textView.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
                     } else if (update4 < 0.15) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊初期");
+                        textView.setText(bd3.doubleValue() + "%" + "酩酊初期");
                     } else if (update4 < 0.30) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊期");
+                        textView.setText(bd3.doubleValue() + "%" + "酩酊期");
                     } else if (update4 < 0.40) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "泥酔期");
+                        textView.setText(bd3.doubleValue() + "%" + "泥酔期");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,100},0);
                     } else if (update4 < 0.50) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
+                        textView.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,500},0);
                     } else if (update4 >= 0.51) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
+                        textView.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,1000},0);
                     }
@@ -321,41 +321,41 @@ public class U_14 extends AppCompatActivity {
                     update4 = update3 + update4;
                     double d3 = update4;
                     BigDecimal bd = new BigDecimal(String.valueOf(d3));
-                    TextView updatatext = (TextView) findViewById(R.id.updatatext);
+                    /*TextView updatatext = (TextView) findViewById(R.id.updatatext);
                     updatatext.setText(String.valueOf(d3) + "%");
-
+*/
                     if (update4 < 0.05) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "爽快期");
+                        textView.setText(bd3.doubleValue() + "%です。" + "爽快期");
                     } else if (update4 < 0.10) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
+                        textView.setText(bd3.doubleValue() + "%です。" + "ほろ酔い期");
                     } else if (update4 < 0.15) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊初期");
+                        textView.setText(bd3.doubleValue() + "%" + "酩酊初期");
                     } else if (update4 < 0.30) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "酩酊期");
+                        textView.setText(bd3.doubleValue() + "%" + "酩酊期");
                     } else if (update4 < 0.40) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "泥酔期");
+                        textView.setText(bd3.doubleValue() + "%" + "泥酔期");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,100},0);
                     } else if (update4 < 0.50) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
+                        textView.setText(bd3.doubleValue() + "%" + "昏睡期　死の危険がある");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,500},0);
                     } else if (update4 >= 0.51) {
                         BigDecimal bd3 = bd.setScale(3, RoundingMode.HALF_UP);
                         TextView textView = (TextView) findViewById(R.id.updatatext);
-                        updatatext.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
+                        textView.setText(bd3.doubleValue() + "%" + "これ以上は飲まないほうがいい");
                         ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE))
                                 .vibrate(new long[]{200,100, 200,1000},0);
                     }

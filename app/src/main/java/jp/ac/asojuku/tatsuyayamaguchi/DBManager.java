@@ -45,7 +45,7 @@ public class DBManager extends SQLiteOpenHelper{
         return cursor;
     }
 
-    public SQLiteCursor selectwe(SQLiteDatabase sqLiteDatabase){
+    public SQLiteCursor selectUser(SQLiteDatabase sqLiteDatabase){
         String selectSql = "SELECT * FROM user ";
         SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor;
