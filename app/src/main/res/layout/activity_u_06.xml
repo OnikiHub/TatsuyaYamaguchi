@@ -34,100 +34,139 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewyamaguchi" />
 
-    <EditText
-        android:id="@+id/editTextWeightHyoji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toEndOf="@+id/textVieWeightHyoji"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <EditText
-        android:id="@+id/editTextAnke1Hyoji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toEndOf="@+id/textViewAnke1Hyoji"
-        app:layout_constraintTop_toBottomOf="@+id/editTextWeightHyoji" />
-
-    <EditText
-        android:id="@+id/editTextAnke2Hyoji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toEndOf="@+id/textViewAnke2Hyoj"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAnke1Hyoji" />
-
-    <EditText
-        android:id="@+id/editTextAnke3Hyoji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toEndOf="@+id/textViewAnke3Hyoji"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAnke2Hyoji" />
-
     <TextView
-        android:id="@+id/textVieWeightHyoji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:id="@+id/textViewTaijuJoho"
+        android:layout_width="114dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="48dp"
         android:text="体重"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
-        android:id="@+id/textViewAnke1Hyoji"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="52dp"
-        android:text="飲酒経験"
+        android:id="@+id/textViewAnke1Joho"
+        android:layout_width="114"
+        android:layout_height="20"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="48dp"
+        android:text="飲酒経験の有無"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textVieWeightHyoji" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaijuJoho" />
 
     <TextView
-        android:id="@+id/textViewAnke2Hyoj"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="52dp"
-        android:text="お酒への強度（最大５）"
+        android:id="@+id/textViewAnke2Joho"
+        android:layout_width="114"
+        android:layout_height="20"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="48dp"
+        android:text="自分がお酒に強いと思うか（最大５）"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAnke1Hyoji" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAnke1Joho" />
 
     <TextView
-        android:id="@+id/textViewAnke3Hyoji"
+        android:id="@+id/textViewAnke3Joho"
+        android:layout_width="114"
+        android:layout_height="20"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="8dp"
+        android:text="晩酌をする頻度（最大５）"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAnke2Joho"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editTextTaijuHenko"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="52dp"
-        android:text="晩酌の頻度"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAnke2Hyoj" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewTaijuJoho"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/editTextAnke1Henko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewAnke1Joho"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTaijuHenko" />
+
+    <EditText
+        android:id="@+id/editTextAnke2Henko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewAnke2Joho"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAnke1Henko" />
+
+    <EditText
+        android:id="@+id/editTextAnke3Henko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewAnke3Joho"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAnke2Henko"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAnke3Henko"
+        app:layout_constraintVertical_bias="0.703"
+        tools:layout_editor_absoluteX="131dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -4,8 +4,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -22,15 +24,19 @@ public class U_06 extends AppCompatActivity {
         manager = new DBManager(this);
         db = manager.getReadableDatabase();
         db = manager.getWritableDatabase();
-        johoList = (ListView)findViewById(R.id.JohoList);
-        Cursor c = db.query("user", null, null, null, null, null, null
-        );
-        c.moveToFirst();
-        johoList.setAdapter(new SimpleCursorAdapter(this,R.layout.list_item,c,
-                new String[] {""})
 
 
 
+
+    }
+    public void setText(){
+        Integer dispWeight = "usertouroku().weight";
+        EditText editTextTaijuHenko = (EditText)findViewById(R.id.editTextTaijuHenko);
+        editTextTaijuHenko.setText(dispWeight, TextView.BufferType.NORMAL);
+
+        String dispAnke1 = "anke1";
+        EditText editTextAnke1Henko = (EditText)findViewById(R.id.editTextAnke1Henko);
+        editTextAnke1Henko.setText(dispAnke1, TextView.BufferType.NORMAL);
 
 
     }
