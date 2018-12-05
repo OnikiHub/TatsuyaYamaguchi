@@ -43,4 +43,19 @@ public class DBManager extends SQLiteOpenHelper{
         SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor;
     }
+    public SQLiteCursor selectAnke1(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM user WHERE anke1";
+        SQLiteCursor cursor1 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return cursor1;
+    }
+    public SQLiteCursor selectAnke2(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM user WHERE anke2";
+        SQLiteCursor cursor2 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return cursor2;
+    }
+    public SQLiteCursor selectAnke3(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM user WHERE anke3";
+        SQLiteCursor cursor3 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return cursor3;
+    }
 }
