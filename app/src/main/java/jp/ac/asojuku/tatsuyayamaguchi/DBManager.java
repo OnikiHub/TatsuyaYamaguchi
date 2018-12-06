@@ -11,7 +11,7 @@ public class DBManager extends SQLiteOpenHelper{
     public DBManager(Context context) { super(context,"kaysu.sqlite3",null,1);}
 
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE IF NOT EXISTS user(_id INTEGER PRIMARY KEY AUTOINCREMENT,weight INTEGER,level INTEGER　default 1,anke1 TEXT,anke2 TEXT,anke3 TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS user(_id INTEGER PRIMARY KEY AUTOINCREMENT,weight INTEGER,level INTEGER,anke1 TEXT,anke2 TEXT,anke3 TEXT)");
 
     }
 
@@ -53,7 +53,6 @@ public class DBManager extends SQLiteOpenHelper{
 
 
     public void updateLevel(SQLiteDatabase sqLiteDatabase,Integer level){
-
         String sql = "UPDATE user SET level=?";
         sqLiteDatabase.execSQL(sql,new Integer[]{level});
 

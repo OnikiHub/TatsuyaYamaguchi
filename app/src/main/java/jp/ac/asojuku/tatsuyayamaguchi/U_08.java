@@ -20,10 +20,10 @@ public class U_08 extends AppCompatActivity {
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
 
-        TextView textView = findViewById(R.id.textViewww);
-        SQLiteCursor cursor = dbm.selectwe(sqlDB);
-        cursor.moveToFirst();
-        textView.setText(String.valueOf(cursor.getInt(0)));
+        //TextView textView = findViewById(R.id.textViewww);
+        //SQLiteCursor cursor = dbm.selectwe(sqlDB);
+        //cursor.moveToFirst();
+        //textView.setText(String.valueOf(cursor.getInt(0)));
 
     }
 

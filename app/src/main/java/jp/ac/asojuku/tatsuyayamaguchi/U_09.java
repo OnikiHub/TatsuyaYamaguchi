@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.sqlite.SQLiteCursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -40,6 +42,9 @@ import java.util.UUID;
 
 
 public class U_09 extends AppCompatActivity {
+    private SQLiteDatabase sqlDB;
+    DBManager dbm;
+    private String se;
     private final int PICK_IMAGE = 1;
     private ProgressDialog detectionProgressDialog;
     private final String apiEndpoint = "https://japaneast.api.cognitive.microsoft.com/face/v1.0";
@@ -52,77 +57,75 @@ public class U_09 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_09);
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
+        SQLiteCursor cursor = dbm.selectUser(sqlDB);
+        cursor.moveToFirst();
+        se=cursor.getString(6);
+
+        if(se.equals("男")){
+            Resources r = getResources();
+            Bitmap bmp = BitmapFactory.decodeResource(r,R.drawable.tatsuya);
+            detect(bmp);
+
+        }else{
+            Resources r = getResources();
+            Bitmap bmp = BitmapFactory.decodeResource(r,R.drawable.img_edfacc3492c54c536856012d8721c59692261);
+            detect(bmp);
+
+        }
 
 
 
 
-
-        final EditText editTextid2 = findViewById(R.id.editTextId2);
-        final EditText editTextid1= findViewById(R.id.editTextId1);
-        final EditText editTextre = findViewById(R.id.editText);
+        final TextView textid2 = findViewById(R.id.textViewid2);
+        final TextView textid1= findViewById(R.id.textViewid1);
+        final TextView textre = findViewById(R.id.textViewre);
         Button button1 = (Button)findViewById(R.id.button1);
+        final Button buttons = (Button)findViewById(R.id.buttonsend);
+        buttons.setEnabled(false);
+        final Button buttonc = (Button)findViewById(R.id.buttoncomp);
+        buttonc.setEnabled(false);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent,"Select Picture"),PICK_IMAGE);
+                buttons.setEnabled(true);
+                buttonc.setEnabled(false);
                 }
         });
 
-        Button button2 = (Button)findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //ImageView imageView = findViewById(R.id.imageView2);
-                //imageView.setImageBitmap(bmp);
-                //tatsuyaID
-                Resources r = getResources();
-                Bitmap bmp = BitmapFactory.decodeResource(r,R.drawable.tatsuya);
-                detect(bmp);
 
 
 
-
-                //Intent intent = new Intent(U_09.this,U_10.class);
-                //intent.putExtra("result",fre);
-                //startActivity(intent);
-
-
-
-
-
-
-
-            }
-        });
-
-        Button buttons = (Button)findViewById(R.id.buttonsend);
         buttons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SpannableStringBuilder sb = (SpannableStringBuilder)editTextid1.getText();
-                String id1 = sb.toString();
+                //SpannableStringBuilder sb = (SpannableStringBuilder)textid1.getText();
+                String id1 = textid1.getText().toString();
 
 
-                SpannableStringBuilder sb2 = (SpannableStringBuilder)editTextid2.getText();
-                //ゲストID
-                String id2 = sb2.toString();
+                //SpannableStringBuilder sb2 = (SpannableStringBuilder)textid2.getText();
+                String id2 = textid2.getText().toString();
 
                 verify(id1,id2);
+
+                buttonc.setEnabled(true);
+                buttons.setEnabled(false);
 
 
             }
         });
 
-        Button buttonc = (Button)findViewById(R.id.buttoncomp);
+
         buttonc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                SpannableStringBuilder sb = (SpannableStringBuilder)editTextre.getText();
-                String str = sb.toString();
+                //SpannableStringBuilder sb = (SpannableStringBuilder)textre.getText();
+                String str = textre.getText().toString();
                 Intent intent = new Intent(U_09.this,U_10.class);
                 intent.putExtra("result",str);
                 startActivity(intent);
@@ -160,7 +163,7 @@ public class U_09 extends AppCompatActivity {
 
         Faceids faces = new Faceids();
 
-        final EditText editText = findViewById(R.id.editText);
+        final TextView textre = findViewById(R.id.textViewre);
 
 
 
@@ -198,7 +201,7 @@ public class U_09 extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Double aDouble) {
-                editText.setText(String.valueOf(aDouble));
+                textre.setText(String.valueOf(aDouble));
 
             }
 
@@ -219,7 +222,7 @@ public class U_09 extends AppCompatActivity {
         imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
         final FaceServiceClient.FaceAttributeType[] faceAttributes = {FaceServiceClient.FaceAttributeType.Age};
-        final EditText editTextid = findViewById(R.id.editTextId1);
+        final TextView textid1 = findViewById(R.id.textViewid1);
 
 
         AsyncTask<InputStream,String,Face[]> detectTask = new AsyncTask<InputStream, String, Face[]>() {
@@ -238,7 +241,7 @@ public class U_09 extends AppCompatActivity {
                     );
 
                     for (Face face : result){
-                        editTextid.setText(String.valueOf(face.faceId));
+                        textid1.setText(String.valueOf(face.faceId));
 
 
 
@@ -281,7 +284,7 @@ public class U_09 extends AppCompatActivity {
         imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
         final FaceServiceClient.FaceAttributeType[] faceAttributes = {FaceServiceClient.FaceAttributeType.Age};
-        final EditText editText = findViewById(R.id.editTextId2);
+        final TextView text2 = findViewById(R.id.textViewid2);
 
 
 
@@ -307,7 +310,7 @@ public class U_09 extends AppCompatActivity {
                         FaceAttribute faceAttribute = face.faceAttributes;
 
 
-                        editText.setText(String.valueOf(face.faceId));
+                        text2.setText(String.valueOf(face.faceId));
 
                         TextView textage = (TextView)findViewById(R.id.textViewage);
                         textage.setText(String.valueOf(faceAttribute.age));
