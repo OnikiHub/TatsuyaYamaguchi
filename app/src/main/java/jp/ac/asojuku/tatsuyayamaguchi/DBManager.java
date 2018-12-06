@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.IntegerRes;
 
 public class DBManager extends SQLiteOpenHelper{
-    public DBManager(Context context) { super(context,"Tatsuya",null,1);}
+    public DBManager(Context context) { super(context,"kikiki",null,1);}
 
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE IF NOT EXISTS user(_id INTEGER PRIMARY KEY AUTOINCREMENT,weight INTEGER,level INTEGER,anke1 TEXT,anke2 TEXT,anke3 TEXT)");
@@ -38,23 +38,28 @@ public class DBManager extends SQLiteOpenHelper{
         cv.put("anke3",inputanke3);
         sqLiteDatabase.insert("user",null,cv);
     }
+    public SQLiteCursor selectUser(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM user ";
+        SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return cursor;
+    }
     public SQLiteCursor selectweight(SQLiteDatabase sqLiteDatabase){
-        String selectSql = "SELECT * FROM user WHERE weight";
+        String selectSql = "SELECT weight FROM user ";
         SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor;
     }
     public SQLiteCursor selectAnke1(SQLiteDatabase sqLiteDatabase){
-        String selectSql = "SELECT * FROM user WHERE anke1";
+        String selectSql = "SELECT anke1 FROM user ";
         SQLiteCursor cursor1 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor1;
     }
     public SQLiteCursor selectAnke2(SQLiteDatabase sqLiteDatabase){
-        String selectSql = "SELECT * FROM user WHERE anke2";
+        String selectSql = "SELECT anke2 FROM user";
         SQLiteCursor cursor2 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor2;
     }
     public SQLiteCursor selectAnke3(SQLiteDatabase sqLiteDatabase){
-        String selectSql = "SELECT * FROM user WHERE anke3";
+        String selectSql = "SELECT anke3 FROM user";
         SQLiteCursor cursor3 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor3;
     }
@@ -67,6 +72,12 @@ public class DBManager extends SQLiteOpenHelper{
         cv.put("anke2",inputanke2);
         cv.put("anke3",inputanke3);
         int result =sqLiteDatabase.update("user",cv,null,null );
+
+    }
+
+    public void updateLevel(SQLiteDatabase sqLiteDatabase,Integer level){
+        String sql = "UPDATE user SET level=?";
+        sqLiteDatabase.execSQL(sql,new Integer[]{level});
 
     }
 

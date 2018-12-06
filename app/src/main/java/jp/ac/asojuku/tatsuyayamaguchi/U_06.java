@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 
 public class U_06 extends AppCompatActivity {
-a
+
     private SQLiteDatabase sqlDB = null;
     private DBManager dbm = null;
 
@@ -34,23 +34,23 @@ a
         EditText editTextTaijuHenko = findViewById(R.id.editTextTaijuHenko);
          SQLiteCursor cursor = dbm.selectweight(sqlDB);
          cursor.moveToFirst();
-         editTextTaijuHenko.setText(cursor.getString(3));
+         editTextTaijuHenko.setText(cursor.getString(0));
          //[];
 
          EditText editTextAnke1Henko = findViewById(R.id.editTextAnke1Henko);
          SQLiteCursor cursor1 = dbm.selectAnke1(sqlDB);
          cursor1.moveToFirst();
-         editTextAnke1Henko.setText(cursor.getString(5));
+         editTextAnke1Henko.setText(cursor1.getString(0));
 
          EditText editTextAnke2Henko = findViewById(R.id.editTextAnke2Henko);
          SQLiteCursor cursor2 = dbm.selectAnke2(sqlDB);
          cursor2.moveToFirst();
-         editTextAnke2Henko.setText(cursor.getString(6));
+         editTextAnke2Henko.setText(cursor2.getString(0));
 
          EditText editTextAnke3Henko = findViewById(R.id.editTextAnke3Henko);
          SQLiteCursor cursor3 = dbm.selectAnke3(sqlDB);
          cursor3.moveToFirst();
-         editTextAnke3Henko.setText(cursor.getString(7));
+         editTextAnke3Henko.setText(cursor3.getString(0));
 
      }
 
