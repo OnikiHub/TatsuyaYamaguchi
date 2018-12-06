@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextweight" />
 
     <TextView
-        android:id="@+id/textViewanke1"
+        android:id="@+id/textViewAnke1Joho"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
@@ -105,7 +105,7 @@
         app:layout_constraintEnd_toStartOf="@+id/spinneranke2"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewanke1" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAnke1Joho" />
 
     <Spinner
         android:id="@+id/spinneranke2"
@@ -116,7 +116,7 @@
         android:layout_marginRight="16dp"
         android:entries="@array/listTwo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewanke1" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAnke1Joho" />
 
     <TextView
         android:id="@+id/textView13"
@@ -173,7 +173,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="体重（数字のみ）"
-        app:layout_constraintBottom_toTopOf="@+id/textViewanke1"
+        app:layout_constraintBottom_toTopOf="@+id/textViewAnke1Joho"
         app:layout_constraintEnd_toStartOf="@+id/editTextweight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewyamaguchi" />

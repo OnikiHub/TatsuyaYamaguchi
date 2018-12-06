@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.IntegerRes;
 
 public class DBManager extends SQLiteOpenHelper{
-    public DBManager(Context context) { super(context,"kaysu.sqlite3",null,1);}
+    public DBManager(Context context) { super(context,"Tatsuya",null,1);}
 
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE IF NOT EXISTS user(_id INTEGER PRIMARY KEY AUTOINCREMENT,weight INTEGER,level INTEGER,anke1 TEXT,anke2 TEXT,anke3 TEXT)");
@@ -33,30 +33,41 @@ public class DBManager extends SQLiteOpenHelper{
         ContentValues cv = new ContentValues();
         //cv.put("id",null);
         cv.put("weight",inputweight);
-        cv.put("level",1);
         cv.put("anke1",inputanke1);
         cv.put("anke2",inputanke2);
         cv.put("anke3",inputanke3);
         sqLiteDatabase.insert("user",null,cv);
     }
     public SQLiteCursor selectweight(SQLiteDatabase sqLiteDatabase){
-        String selectSql = "SELECT * FROM user WHERE Weight";
+        String selectSql = "SELECT * FROM user WHERE weight";
         SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor;
     }
-
-    public SQLiteCursor selectUser(SQLiteDatabase sqLiteDatabase){
-        String selectSql = "SELECT * FROM user ";
-        SQLiteCursor cursor = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
-        return cursor;
+    public SQLiteCursor selectAnke1(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM user WHERE anke1";
+        SQLiteCursor cursor1 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return cursor1;
     }
-
-
-    public void updateLevel(SQLiteDatabase sqLiteDatabase,Integer level){
-        String sql = "UPDATE user SET level=?";
-        sqLiteDatabase.execSQL(sql,new Integer[]{level});
+    public SQLiteCursor selectAnke2(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM user WHERE anke2";
+        SQLiteCursor cursor2 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return cursor2;
+    }
+    public SQLiteCursor selectAnke3(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT * FROM user WHERE anke3";
+        SQLiteCursor cursor3 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return cursor3;
+    }
+    public void userupdate(SQLiteDatabase sqLiteDatabase, Integer inputweight, String inputanke1, String inputanke2, String inputanke3){
+        //String selectSql = "UPDATE user SET "
+        ContentValues cv = new ContentValues();
+        //cv.put("id",null);
+        cv.put("weight",inputweight);
+        cv.put("anke1",inputanke1);
+        cv.put("anke2",inputanke2);
+        cv.put("anke3",inputanke3);
+        int result =sqLiteDatabase.update("user",cv,null,null );
 
     }
-
 
 }
