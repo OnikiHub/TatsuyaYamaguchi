@@ -36,6 +36,7 @@ public class U_03 extends AppCompatActivity {
         //buttonInsert.setOnClickListener(new View.OnClickListener() {
         //xxx
     }
+
     private void initSpinners(){
         Spinner spinneranke1 = (Spinner)findViewById(R.id.spinneranke1);
         Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
@@ -64,6 +65,7 @@ public class U_03 extends AppCompatActivity {
     }
 
 
+
     public void buttonInsert_click(View view) {
         //int message = user_weight.getText().toint();
         EditText editTextweight = (EditText) findViewById(R.id.editTextweight);
@@ -73,6 +75,9 @@ public class U_03 extends AppCompatActivity {
         Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
         Spinner spinneranke3 = (Spinner) findViewById(R.id.spinneranke3);
 
+
+
+        //if (Weight != null) dbm.touroku(sqlDB, Weight);
 
         if (weight != null &&weight.length() >0) {
             Integer Weight = Integer.parseInt(weight);
@@ -84,9 +89,11 @@ public class U_03 extends AppCompatActivity {
             startActivity(intent);
 
         }else{
+            //ここまで処理が行かないので落ちる。日本語
             Intent intent = new Intent(U_03.this,U_04.class);
             startActivity(intent);
         }
+
 
         //user_weight.setText("");
         //Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();

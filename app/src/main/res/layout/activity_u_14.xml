@@ -7,79 +7,66 @@
     tools:context=".U_14"
     tools:layout_editor_absoluteY="81dp">
 
+
     <Button
-        android:id="@+id/buttoninsert"
+        android:id="@+id/buttoninsert2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="76dp"
-        android:layout_marginRight="76dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:background="@android:color/darker_gray"
         android:text="@string/logout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
-        tools:layout_editor_absoluteX="87dp"
-        tools:text="@string/osaketap" />
 
     <ListView
         android:id="@+id/sListView"
-        android:layout_width="407dp"
-        android:layout_height="294dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/background_light"
+        android:layout_width="397dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="24dp"
+        android:layout_weight="1"
+        android:background="@android:color/darker_gray"
         android:divider="@android:color/holo_red_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/buttoninsert2"
+        tools:layout_editor_absoluteX="0dp">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/decide"
-        app:layout_constraintTop_toBottomOf="@+id/buttoninsert"
-        tools:layout_editor_absoluteX="16dp" />
+    </ListView>
 
     <TextView
         android:id="@+id/updatatext"
-        android:layout_width="220dp"
-        android:layout_height="70dp"
+        android:layout_width="184dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sListView" />
 
-    <TextView
-        android:id="@+id/control"
-        android:layout_width="322dp"
-        android:layout_height="104dp"
-        android:layout_marginEnd="4dp"
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="268dp"
+        android:layout_height="89dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="88dp"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_red_light"
+        android:onClick="onStop"
+        android:text="STOP"
+        android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updatatext" />
-
 
 </android.support.constraint.ConstraintLayout>

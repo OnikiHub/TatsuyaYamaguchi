@@ -4,7 +4,11 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.database.sqlite.SQLiteCursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -16,8 +20,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +42,9 @@ import java.util.UUID;
 
 
 public class U_09 extends AppCompatActivity {
+    private SQLiteDatabase sqlDB;
+    DBManager dbm;
+    private String se;
     private final int PICK_IMAGE = 1;
     private ProgressDialog detectionProgressDialog;
     private final String apiEndpoint = "https://japaneast.api.cognitive.microsoft.com/face/v1.0";
@@ -48,25 +57,78 @@ public class U_09 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_u_09);
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
+        SQLiteCursor cursor = dbm.selectUser(sqlDB);
+        cursor.moveToFirst();
+        se=cursor.getString(6);
 
+        if(se.equals("男")){
+            Resources r = getResources();
+            Bitmap bmp = BitmapFactory.decodeResource(r,R.drawable.tatsuya);
+            detect(bmp);
+
+        }else{
+            Resources r = getResources();
+            Bitmap bmp = BitmapFactory.decodeResource(r,R.drawable.img_edfacc3492c54c536856012d8721c59692261);
+            detect(bmp);
+
+        }
+
+
+
+
+        final TextView textid2 = findViewById(R.id.textViewid2);
+        final TextView textid1= findViewById(R.id.textViewid1);
+        final TextView textre = findViewById(R.id.textViewre);
         Button button1 = (Button)findViewById(R.id.button1);
+        final Button buttons = (Button)findViewById(R.id.buttonsend);
+        buttons.setEnabled(false);
+        final Button buttonc = (Button)findViewById(R.id.buttoncomp);
+        buttonc.setEnabled(false);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent,"Select Picture"),PICK_IMAGE);
+                buttons.setEnabled(true);
+                buttonc.setEnabled(false);
                 }
         });
 
-        Button button2 = (Button)findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
+
+
+
+        buttons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //SpannableStringBuilder sb = (SpannableStringBuilder)textid1.getText();
+                String id1 = textid1.getText().toString();
+
+
+                //SpannableStringBuilder sb2 = (SpannableStringBuilder)textid2.getText();
+                String id2 = textid2.getText().toString();
+
+                verify(id1,id2);
+
+                buttonc.setEnabled(true);
+                buttons.setEnabled(false);
+
+
+            }
+        });
+
+
+        buttonc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-
-
+                //SpannableStringBuilder sb = (SpannableStringBuilder)textre.getText();
+                String str = textre.getText().toString();
+                Intent intent = new Intent(U_09.this,U_10.class);
+                intent.putExtra("result",str);
+                startActivity(intent);
 
 
             }
@@ -91,38 +153,41 @@ public class U_09 extends AppCompatActivity {
             }
         }
     }
-    private void verify(final Face[] face01, final Face[] face02){
+    private void verify(final String id1, final  String id2){
 
 
-        class Faces{
-            Face[] face1 =face01;
-            Face[] face2 =face02;
+        class Faceids{
+            String face1 =id1;
+            String face2 =id2;
         }
 
-        Faces faces = new Faces();
+        Faceids faces = new Faceids();
+
+        final TextView textre = findViewById(R.id.textViewre);
 
 
 
-        AsyncTask<Faces,String,Double> verifyTask = new AsyncTask<Faces, String, Double>() {
+
+        AsyncTask<Faceids,String,Double> verifyTask = new AsyncTask<Faceids, String, Double>() {
             Double re;
-            protected Double doInBackground(Faces... params) {
+
+
+
+            protected Double doInBackground(Faceids... params) {
                 try {
-                    Faces face = params[0];
-                    Face[] facedata1 = face.face1;
-                    Face[] facedata2 = face.face2;
-                    UUID faceId1 = null;
-                    UUID faceId2 = null;
-                    for (Face faces : facedata1) {
-                        faceId1 = faces.faceId;
+                    Faceids face = params[0];
+                    String facedata1 = face.face1;
+                    String facedata2 = face.face2;
 
-                    }
+                    UUID faceId1 = UUID.fromString(facedata1);
+                    UUID faceId2 = UUID.fromString(facedata2);
 
-                    for (Face faces : facedata2) {
-                        faceId2 = faces.faceId;
-                    }
 
                     VerifyResult result1 = faceServiceClient.verify(faceId1, faceId2);
-                    re=result1.confidence;
+                    re = result1.confidence;
+
+                    //editText.setText(String.valueOf(result1.confidence));
+
 
 
 
@@ -136,30 +201,91 @@ public class U_09 extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Double aDouble) {
-                TextView textViewr = findViewById(R.id.textViewre);
-                textViewr.setText(String.valueOf(aDouble));
+                textre.setText(String.valueOf(aDouble));
+
             }
+
+
+
+
+
+
         };
-
-
-
-
-
+        verifyTask.execute(faces);
 
 
 
     }
 
     private void detect (final Bitmap imageBitmap){
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
+        final FaceServiceClient.FaceAttributeType[] faceAttributes = {FaceServiceClient.FaceAttributeType.Age};
+        final TextView textid1 = findViewById(R.id.textViewid1);
+
+
+        AsyncTask<InputStream,String,Face[]> detectTask = new AsyncTask<InputStream, String, Face[]>() {
+            String exceptionMessage = "";
+            Face[] result;
+            @Override
+            protected Face[] doInBackground(InputStream... params) {
+                try {
+                    result = faceServiceClient.detect(
+                            params[0],
+                            true,
+                            false,
+                            faceAttributes
+
+
+                    );
+
+                    for (Face face : result){
+                        textid1.setText(String.valueOf(face.faceId));
+
+
+
+                    }
+
+
+
+
+
+                }catch (Exception e){
+
+                }
+                return result;
+
+
+
+            }
+
+
+
+
+
+        };
+
+        detectTask.execute(inputStream);
+
+
 
 
     }
+
+
+
+
+
+
 
     private void detectAndFrame(final Bitmap imageBitmap){
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray());
         final FaceServiceClient.FaceAttributeType[] faceAttributes = {FaceServiceClient.FaceAttributeType.Age};
+        final TextView text2 = findViewById(R.id.textViewid2);
+
 
 
         AsyncTask<InputStream,String,Face[]> detectTask = new AsyncTask<InputStream, String, Face[]>() {
@@ -182,6 +308,9 @@ public class U_09 extends AppCompatActivity {
 
                     for (Face face : result){
                         FaceAttribute faceAttribute = face.faceAttributes;
+
+
+                        text2.setText(String.valueOf(face.faceId));
 
                         TextView textage = (TextView)findViewById(R.id.textViewage);
                         textage.setText(String.valueOf(faceAttribute.age));
