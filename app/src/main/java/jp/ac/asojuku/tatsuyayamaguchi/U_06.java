@@ -12,7 +12,6 @@ import android.widget.Spinner;
 
 
 public class U_06 extends AppCompatActivity {
-a
     private SQLiteDatabase sqlDB = null;
     private DBManager dbm = null;
 
