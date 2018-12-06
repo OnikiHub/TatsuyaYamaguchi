@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
         android:layout_marginLeft="140dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="54dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="会員情報"
@@ -47,8 +47,8 @@
 
     <TextView
         android:id="@+id/textViewAnke1Joho"
-        android:layout_width="114"
-        android:layout_height="20"
+        android:layout_width="114dp"
+        android:layout_height="20dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="48dp"
@@ -58,8 +58,8 @@
 
     <TextView
         android:id="@+id/textViewAnke2Joho"
-        android:layout_width="114"
-        android:layout_height="20"
+        android:layout_width="114dp"
+        android:layout_height="20dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="48dp"
@@ -70,8 +70,8 @@
 
     <TextView
         android:id="@+id/textViewAnke3Joho"
-        android:layout_width="114"
-        android:layout_height="20"
+        android:layout_width="114dp"
+        android:layout_height="20dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="48dp"
@@ -161,12 +161,18 @@
         android:id="@+id/buttonHenko"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Button"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="29dp"
+        android:onClick="buttonHenko_click"
+        android:text="変更"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAnke3Henko"
-        app:layout_constraintVertical_bias="0.703"
-        tools:layout_editor_absoluteX="131dp" />
+        app:layout_constraintVertical_bias="0.703" />
 
 </android.support.constraint.ConstraintLayout>

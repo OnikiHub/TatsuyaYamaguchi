@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 
 public class U_06 extends AppCompatActivity {
-
+a
     private SQLiteDatabase sqlDB = null;
     private DBManager dbm = null;
 
@@ -23,27 +23,38 @@ public class U_06 extends AppCompatActivity {
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
 
-        EditText editTextTaijuHenko = findViewById(R.id.editTextTaijuHenko);
-        SQLiteCursor cursor = dbm.selectweight(sqlDB);
-        cursor.moveToFirst();
-        editTextTaijuHenko.setText(cursor.getString(0));
 
-        EditText editTextAnke1Henko = findViewById(R.id.editTextAnke1Henko);
-        SQLiteCursor cursor1 = dbm.selectAnke1(sqlDB);
-        cursor1.moveToFirst();
-        editTextAnke1Henko.setText(cursor.getString(0));
-
-        EditText editTextAnke2Henko = findViewById(R.id.editTextAnke2Henko);
-        SQLiteCursor cursor2 = dbm.selectAnke2(sqlDB);
-        cursor2.moveToFirst();
-        editTextAnke2Henko.setText(cursor.getString(0));
-
-        EditText editTextAnke3Henko = findViewById(R.id.editTextAnke3Henko);
-        SQLiteCursor cursor3 = dbm.selectAnke3(sqlDB);
-        cursor3.moveToFirst();
-        editTextAnke3Henko.setText(cursor.getString(0));
     }
-    public void buttonInsert_click(View view) {
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+        EditText editTextTaijuHenko = findViewById(R.id.editTextTaijuHenko);
+         SQLiteCursor cursor = dbm.selectweight(sqlDB);
+         cursor.moveToFirst();
+         editTextTaijuHenko.setText(cursor.getString(3));
+         //[];
+
+         EditText editTextAnke1Henko = findViewById(R.id.editTextAnke1Henko);
+         SQLiteCursor cursor1 = dbm.selectAnke1(sqlDB);
+         cursor1.moveToFirst();
+         editTextAnke1Henko.setText(cursor.getString(5));
+
+         EditText editTextAnke2Henko = findViewById(R.id.editTextAnke2Henko);
+         SQLiteCursor cursor2 = dbm.selectAnke2(sqlDB);
+         cursor2.moveToFirst();
+         editTextAnke2Henko.setText(cursor.getString(6));
+
+         EditText editTextAnke3Henko = findViewById(R.id.editTextAnke3Henko);
+         SQLiteCursor cursor3 = dbm.selectAnke3(sqlDB);
+         cursor3.moveToFirst();
+         editTextAnke3Henko.setText(cursor.getString(7));
+
+     }
+
+    public void buttonHenko_click(View view) {
 
         EditText editTextTaijuHenko = findViewById(R.id.editTextTaijuHenko);
         String weight = editTextTaijuHenko.getText().toString();
@@ -58,28 +69,24 @@ public class U_06 extends AppCompatActivity {
         EditText editTextAnke3Henko = findViewById(R.id.editTextAnke3Henko);
         String anke3 = editTextAnke3Henko.getText().toString();
 
-        dbm.userupdate(sqlDB, Weight, anke1, anke2,anke3);
+        dbm.userupdate(sqlDB, Weight, anke1, anke2, anke3);
 
 
+        //if (weight != null &&weight.length() >0) {
+        //  Integer Weight = Integer.parseInt(weight);
+        Intent intent = new Intent(U_06.this, U_06.class);
+        startActivity(intent);
+    }
+}
 
-
-        if (weight != null &&weight.length() >0) {
-            Integer Weight = Integer.parseInt(weight);
-
-            dbm.usertouroku(sqlDB, Weight, anke1, anke2, anke3);
-            Intent intent = new Intent(U_03.this,U_08.class);
-            startActivity(intent);
-
-        }else{
-            Intent intent = new Intent(U_03.this,U_04.class);
-            startActivity(intent);
-        }
+        //}else{
+          //  Intent intent = new Intent(U_03.this,U_04.class);
+           // startActivity(intent);
+        //}
 
         //user_weight.setText("");
         //Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
-    }
-}
-    //public void setText(){
+    //publicoid setText(){
        // Integer dispWeight = "usertouroku().weight";
        // EditText editTextTaijuHenko = (EditText)findViewById(R.id.editTextTaijuHenko);
        // editTextTaijuHenko.setText(dispWeight, TextView.BufferType.NORMAL);
@@ -89,5 +96,4 @@ public class U_06 extends AppCompatActivity {
        // editTextAnke1Henko.setText(dispAnke1, TextView.BufferType.NORMAL);
 
 
-    }
-}
+

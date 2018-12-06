@@ -58,4 +58,16 @@ public class DBManager extends SQLiteOpenHelper{
         SQLiteCursor cursor3 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor3;
     }
+    public void userupdate(SQLiteDatabase sqLiteDatabase, Integer inputweight, String inputanke1, String inputanke2, String inputanke3){
+        //String selectSql = "UPDATE user SET "
+        ContentValues cv = new ContentValues();
+        //cv.put("id",null);
+        cv.put("weight",inputweight);
+        cv.put("anke1",inputanke1);
+        cv.put("anke2",inputanke2);
+        cv.put("anke3",inputanke3);
+        int result =sqLiteDatabase.update("user",cv,null,null );
+
+    }
+
 }
