@@ -23,33 +23,38 @@ public class U_10 extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        dbm = new DBManager(this);
+        sqlDB = dbm.getWritableDatabase();
         Intent intent = getIntent();
         String result = intent.getStringExtra("result");
         double jre = Double.parseDouble(result);
 
-        TextView textView = findViewById(R.id.textView8);
-        textView.setText(result);
-        TextView textViewwe = findViewById(R.id.textViewwe);
+
 
 
         TextView textViewre = findViewById(R.id.textViewresult);
 
 
         if (jre <= 0.1){
-            textViewre.setText("レベル1");
+            textViewre.setText("レベル1：非常に弱い");
+            dbm.updateLevel(sqlDB,1);
         }else if(jre <=0.2){
-            textViewre.setText("レベル2");
-        }else if(jre <=0.4){
-            textViewre.setText("レベル3");
-        }else if(jre <=0.6){
-            textViewre.setText("レベル4");
+            textViewre.setText("レベル2：弱い");
+            dbm.updateLevel(sqlDB,2);
+        }else if(jre <=0.3){
+            textViewre.setText("レベル3：普通");
+            dbm.updateLevel(sqlDB,3);
+        }else if(jre <=0.5){
+            textViewre.setText("レベル4：強い");
+            dbm.updateLevel(sqlDB,4);
         }else {
-            textViewre.setText("レベル5");
+            textViewre.setText("レベル5：酒豪");
+            dbm.updateLevel(sqlDB,5);
         }
 
-        SQLiteCursor cursor = dbm.selectwe(sqlDB);
-        cursor.moveToFirst();
-        textViewwe.setText(cursor.getInt(1));
+        //SQLiteCursor cursor = dbm.selectwe(sqlDB);
+        //cursor.moveToFirst();
+        //textViewwe.setText(cursor.getInt(1));
 
 
     }

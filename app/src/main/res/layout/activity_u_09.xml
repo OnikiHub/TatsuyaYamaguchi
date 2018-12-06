@@ -11,7 +11,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,32 +21,24 @@
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
-            android:contentDescription="Image with faces to analyze" />
+            android:layout_height="231dp"
+            android:contentDescription="Image with faces to analyze"
+            app:srcCompat="@drawable/syod" />
 
 
         <Button
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="164dp"
-            android:text="Browse for face image" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="Browse for face image" />
+            android:layout_above="@+id/buttonsend"
+            android:text="@string/select" />
 
         <Button
             android:id="@+id/buttonsend"
-            android:layout_width="wrap_content"
+            android:layout_width="374dp"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/editTextId1"
-            android:layout_toEndOf="@+id/editTextId1"
-            android:text="Button"
+            android:layout_above="@+id/buttoncomp"
+            android:text="@string/complete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -55,59 +47,41 @@
 
         <TextView
             android:id="@+id/textViewage"
-            android:layout_width="123dp"
+            android:layout_width="204dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/button1"
-            android:layout_marginTop="-164dp"
-            android:text="TextView"
-            android:textSize="24sp" />
-
-        <EditText
-            android:id="@+id/editTextId1"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="54dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <EditText
-            android:id="@+id/editTextId2"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/editTextId1"
-            android:layout_marginEnd="2dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:layout_alignTop="@+id/textViewre"
+            android:layout_toEndOf="@+id/textViewre" />
 
         <Button
             android:id="@+id/buttoncomp"
-            android:layout_width="wrap_content"
+            android:layout_width="374dp"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/editTextId1"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="25dp"
-            android:text="Button" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="108dp"
+            android:text="@string/send" />
+
+        <TextView
+            android:id="@+id/textViewid1"
+            android:layout_width="366dp"
+            android:layout_height="29dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="65dp" />
+
+        <TextView
+            android:id="@+id/textViewid2"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textViewage" />
+
+        <TextView
+            android:id="@+id/textViewre"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/textViewid1"
+            android:layout_marginBottom="20dp" />
 
     </RelativeLayout>
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        app:layout_constraintVertical_bias="0.746" />
 
 
 </android.support.constraint.ConstraintLayout>
