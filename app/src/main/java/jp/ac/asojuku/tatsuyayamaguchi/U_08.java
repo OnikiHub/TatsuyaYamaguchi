@@ -72,14 +72,7 @@ public class U_08 extends AppCompatActivity {
             }
         });
 
-        Button buttoncontent = (Button)findViewById(R.id.buttoncontent);
-        buttoncontent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(U_08.this,M_10.class);
-                startActivity(intent);
-            }
-        });
+
         /*Button button3    = (Button)findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
