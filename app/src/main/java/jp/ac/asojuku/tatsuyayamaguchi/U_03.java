@@ -87,6 +87,7 @@ public class U_03 extends AppCompatActivity {
 
 
 
+
         //if (Weight != null) dbm.touroku(sqlDB, Weight);
 
         if (weight != null &&weight.length() >0) {
