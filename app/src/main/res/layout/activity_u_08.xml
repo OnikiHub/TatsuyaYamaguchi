@@ -7,21 +7,6 @@
     tools:context=".U_08">
 
 
-    <Button
-        android:id="@+id/buttoncontent2"
-        android:layout_width="201dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginRight="148dp"
-        android:text="@string/clist"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttoncontent" />
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
@@ -39,15 +24,15 @@
 
     <Button
         android:id="@+id/buttonpic"
-        android:layout_width="215dp"
+        android:layout_width="204dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="148dp"
         android:layout_marginLeft="148dp"
         android:layout_marginRight="148dp"
         android:layout_marginStart="148dp"
+        android:layout_marginTop="36dp"
         android:text="@string/pic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -59,9 +44,10 @@
         android:layout_marginLeft="148dp"
         android:layout_marginRight="148dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="52dp"
         android:text="@string/drink"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonpic" />
 
@@ -73,10 +59,9 @@
         android:layout_marginLeft="148dp"
         android:layout_marginRight="148dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="52dp"
         android:text="@string/update"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttondrink" />
 
@@ -88,41 +73,12 @@
         android:layout_marginLeft="148dp"
         android:layout_marginRight="148dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="52dp"
         android:text="@string/his"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonchange" />
-
-    <Button
-        android:id="@+id/buttoncontent"
-        android:layout_width="201dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginRight="148dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/clist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonhis" />
-
-    <TextView
-        android:id="@+id/textViewww"
-        android:layout_width="181dp"
-        android:layout_height="31dp"
-        android:layout_marginEnd="163dp"
-        android:layout_marginLeft="163dp"
-        android:layout_marginRight="163dp"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="30dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttoncontent2" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonchange" />
 
 
 </android.support.constraint.ConstraintLayout>

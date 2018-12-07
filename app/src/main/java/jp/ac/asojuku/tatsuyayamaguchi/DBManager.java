@@ -7,8 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.IntegerRes;
 
-public class DBManager extends SQLiteOpenHelper{
+public class DBManager￥<<<<<<< MatsuoTatsuya
     public DBManager(Context context) { super(context,"ikko",null,1);}
+
+    
 
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE IF NOT EXISTS user(_id INTEGER PRIMARY KEY AUTOINCREMENT,weight INTEGER,level INTEGER,anke1 TEXT,anke2 TEXT,anke3 TEXT,anke4 TEXT)");
@@ -33,6 +35,7 @@ public class DBManager extends SQLiteOpenHelper{
         ContentValues cv = new ContentValues();
         //cv.put("id",null);
         cv.put("weight",inputweight);
+        cv.put("level",1);
         cv.put("anke1",inputanke1);
         cv.put("anke2",inputanke2);
         cv.put("anke3",inputanke3);
