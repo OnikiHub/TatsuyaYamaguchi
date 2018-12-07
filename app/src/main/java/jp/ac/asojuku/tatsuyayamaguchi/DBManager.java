@@ -8,7 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.IntegerRes;
 
 public class DBManager extends SQLiteOpenHelper{
+
     public DBManager(Context context) { super(context,"chocolateikkosan",null,1);}
+
 
     
 
