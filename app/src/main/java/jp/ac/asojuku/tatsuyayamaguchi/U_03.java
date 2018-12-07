@@ -1,6 +1,7 @@
 package jp.ac.asojuku.tatsuyayamaguchi;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,11 @@ public class U_03 extends AppCompatActivity {
         setContentView(R.layout.activity_u_03);
         dbm = new DBManager(this);
         sqlDB = dbm.getWritableDatabase();
+
+
     }
+
+
 
     @Override
     protected void onResume() {
@@ -32,6 +37,32 @@ public class U_03 extends AppCompatActivity {
         //int Weight = Integer.parseInt(weight);
 
         Button buttonInsert = (Button) findViewById(R.id.buttonInsert);
+
+
+
+        SQLiteCursor cursor = dbm.selectweight(sqlDB);
+
+//        SQLiteCursor cursor1 = dbm.selectAnke1(sqlDB);
+//        cursor1.moveToFirst();
+//        SQLiteCursor cursor2 = dbm.selectAnke2(sqlDB);
+//        cursor2.moveToFirst();
+//        SQLiteCursor cursor3 = dbm.selectAnke3(sqlDB);
+//        cursor3.moveToFirst();
+//        SQLiteCursor cursor4 = dbm.selectAnke4(sqlDB);
+//        cursor4.moveToFirst();
+
+        if (cursor.getCount() >0){
+
+            Intent intent = new Intent(U_03.this,U_08.class);
+            startActivity(intent);
+
+
+        }
+
+
+
+
+
 
 
 
@@ -90,14 +121,25 @@ public class U_03 extends AppCompatActivity {
         //if (Weight != null) dbm.touroku(sqlDB, Weight);
 
         if (weight != null &&weight.length() >0) {
-            Integer Weight = Integer.parseInt(weight);
             String anke1 = spinneranke1.getSelectedItem().toString();
             String anke2 = spinneranke2.getSelectedItem().toString();
             String anke3 = spinneranke3.getSelectedItem().toString();
             String anke4 = spinneranke4.getSelectedItem().toString();
-            dbm.usertouroku(sqlDB, Weight, anke1, anke2, anke3, anke4);
-            Intent intent = new Intent(U_03.this,U_08.class);
-            startActivity(intent);
+
+                try{
+                    Integer Weight = Integer.parseInt(weight);
+                    dbm.usertouroku(sqlDB, Weight, anke1, anke2, anke3, anke4);
+                    Intent intent = new Intent(U_03.this,U_08.class);
+                    startActivity(intent);
+
+                }catch(NumberFormatException e){
+                    Intent intent = new Intent(U_03.this,U_04.class);
+                    startActivity(intent);
+                }
+
+            //dbm.usertouroku(sqlDB, Weight, anke1, anke2, anke3, anke4);
+            //Intent intent = new Intent(U_03.this,U_08.class);
+            //startActivity(intent);
 
         }else{
             //ここまで処理が行かないので落ちる。日本語

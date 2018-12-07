@@ -81,7 +81,7 @@ public class U_06 extends AppCompatActivity {
 
         dbm.userupdate(sqlDB, Weight, anke1, anke2, anke3, anke4);
 
-        Toast.makeText(this, "登録が完了しました。", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "変更が完了しました。", Toast.LENGTH_SHORT).show();
 
 
         //if (weight != null &&weight.length() >0) {
