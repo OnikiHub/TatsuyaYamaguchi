@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.IntegerRes;
 
-public class DBManager￥<<<<<<< MatsuoTatsuya
+public class DBManager extends SQLiteOpenHelper{
     public DBManager(Context context) { super(context,"ikko",null,1);}
 
     
