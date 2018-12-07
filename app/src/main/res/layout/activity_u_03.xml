@@ -125,12 +125,9 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="8dp"
         android:text="③晩酌はよくしますか？（最大５）"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <Spinner
         android:id="@+id/spinneranke3"
@@ -152,15 +149,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="64dp"
         android:onClick="buttonInsert_click"
         android:text="完了"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/spinneranke4"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView6"
@@ -177,5 +177,32 @@
         app:layout_constraintEnd_toStartOf="@+id/editTextweight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewyamaguchi" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="④性別はなんですか？"
+        app:layout_constraintBottom_toTopOf="@+id/buttonInsert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <Spinner
+        android:id="@+id/spinneranke4"
+        android:layout_width="158dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="36dp"
+        android:entries="@array/listFour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/spinneranke3" />
 
 </android.support.constraint.ConstraintLayout>
