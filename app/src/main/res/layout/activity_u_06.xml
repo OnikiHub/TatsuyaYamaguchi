@@ -25,12 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
         android:layout_marginLeft="140dp"
-        android:layout_marginTop="54dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="会員情報"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewyamaguchi" />
 
@@ -40,7 +39,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="12dp"
         android:text="体重"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -58,7 +57,7 @@
 
     <TextView
         android:id="@+id/textViewAnke2Joho"
-        android:layout_width="114dp"
+        android:layout_width="178dp"
         android:layout_height="20dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
@@ -70,27 +69,24 @@
 
     <TextView
         android:id="@+id/textViewAnke3Joho"
-        android:layout_width="114dp"
-        android:layout_height="20dp"
+        android:layout_width="179dp"
+        android:layout_height="24dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="48dp"
-        android:layout_marginBottom="8dp"
         android:text="晩酌をする頻度（最大５）"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAnke2Joho"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAnke2Joho" />
 
     <EditText
         android:id="@+id/editTextTaijuHenko"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="No Data"
@@ -102,7 +98,7 @@
 
     <EditText
         android:id="@+id/editTextAnke1Henko"
-        android:layout_width="wrap_content"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -145,6 +141,22 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="No Data"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewAnke3Joho"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAnke2Henko" />
+
+    <EditText
+        android:id="@+id/editTextAnke4Henko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -152,27 +164,44 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewAnke3Joho"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAnke2Henko"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAnke3Henko"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewAnke4Joho"
+        android:layout_width="41dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="性別"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextAnke4Henko"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAnke3Joho"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/buttonHenko"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="35dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="8dp"
         android:onClick="buttonHenko_click"
         android:text="変更"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAnke3Henko"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

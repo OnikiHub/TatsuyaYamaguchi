@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.IntegerRes;
 
 public class DBManager extends SQLiteOpenHelper{
-    public DBManager(Context context) { super(context,"kikiki",null,1);}
+    public DBManager(Context context) { super(context,"ikko",null,1);}
 
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("CREATE TABLE IF NOT EXISTS user(_id INTEGER PRIMARY KEY AUTOINCREMENT,weight INTEGER,level INTEGER,anke1 TEXT,anke2 TEXT,anke3 TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS user(_id INTEGER PRIMARY KEY AUTOINCREMENT,weight INTEGER,level INTEGER,anke1 TEXT,anke2 TEXT,anke3 TEXT,anke4 TEXT)");
 
     }
 
@@ -26,7 +26,7 @@ public class DBManager extends SQLiteOpenHelper{
         return  cursor;
     }
 
-    public  void  usertouroku(SQLiteDatabase sqLiteDatabase, Integer inputweight, String inputanke1, String inputanke2, String inputanke3){
+    public  void  usertouroku(SQLiteDatabase sqLiteDatabase, Integer inputweight, String inputanke1, String inputanke2, String inputanke3, String inputanke4){
         //String sql = "INSERT INTO user(id,weight,anke1,anke2,anke3) VALUEs(null,?,?,?,?)";
         //sqLiteDatabase.execSQL(sql,new Object[]{inputweight,inputanke1,inputanke2,inputanke3});
 
@@ -36,6 +36,7 @@ public class DBManager extends SQLiteOpenHelper{
         cv.put("anke1",inputanke1);
         cv.put("anke2",inputanke2);
         cv.put("anke3",inputanke3);
+        cv.put("anke4",inputanke4);
         sqLiteDatabase.insert("user",null,cv);
     }
     public SQLiteCursor selectUser(SQLiteDatabase sqLiteDatabase){
@@ -63,7 +64,12 @@ public class DBManager extends SQLiteOpenHelper{
         SQLiteCursor cursor3 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
         return cursor3;
     }
-    public void userupdate(SQLiteDatabase sqLiteDatabase, Integer inputweight, String inputanke1, String inputanke2, String inputanke3){
+    public SQLiteCursor selectAnke4(SQLiteDatabase sqLiteDatabase){
+        String selectSql = "SELECT anke4 FROM user";
+        SQLiteCursor cursor4 = (SQLiteCursor)sqLiteDatabase.rawQuery(selectSql,null);
+        return cursor4;
+    }
+    public void userupdate(SQLiteDatabase sqLiteDatabase, Integer inputweight, String inputanke1, String inputanke2, String inputanke3, String inputanke4){
         //String selectSql = "UPDATE user SET "
         ContentValues cv = new ContentValues();
         //cv.put("id",null);
@@ -71,6 +77,7 @@ public class DBManager extends SQLiteOpenHelper{
         cv.put("anke1",inputanke1);
         cv.put("anke2",inputanke2);
         cv.put("anke3",inputanke3);
+        cv.put("anke4",inputanke4);
         int result =sqLiteDatabase.update("user",cv,null,null );
 
     }

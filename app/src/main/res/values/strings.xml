@@ -54,4 +54,9 @@
         <item>2</item>
         <item>1</item>
     </string-array>
+    <string-array name="listFour">
+        <item>ikkoさん</item>
+        <item>おとこのこ</item>
+        <item>おんなのこ</item>
+    </string-array>
 </resources>

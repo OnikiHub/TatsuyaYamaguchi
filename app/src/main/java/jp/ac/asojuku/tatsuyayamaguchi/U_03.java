@@ -33,17 +33,21 @@ public class U_03 extends AppCompatActivity {
 
         Button buttonInsert = (Button) findViewById(R.id.buttonInsert);
 
+        
+
         //buttonInsert.setOnClickListener(new View.OnClickListener() {
         //xxx
     }
 
     private void initSpinners(){
-        Spinner spinneranke1 = (Spinner)findViewById(R.id.spinneranke1);
-        Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
-        Spinner spinneranke3 = (Spinner) findViewById(R.id.spinneranke3);
+        Spinner spinneranke1 = findViewById(R.id.spinneranke1);
+        Spinner spinneranke2 = findViewById(R.id.spinneranke2);
+        Spinner spinneranke3 = findViewById(R.id.spinneranke3);
+        Spinner spinneranke4 = findViewById(R.id.spinneranke4);
         String[] list1 = getResources().getStringArray(R.array.listOne);
         String[] list2 = getResources().getStringArray(R.array.listTwo);
         String[] list3 = getResources().getStringArray(R.array.listThree);
+        String[] list4 = getResources().getStringArray(R.array.listFour);
         ArrayAdapter<String> adapter1
                 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list1);
 
@@ -53,13 +57,18 @@ public class U_03 extends AppCompatActivity {
         ArrayAdapter<String> adapter3
                 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list3);
 
+        ArrayAdapter<String> adapter4
+                = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list4);
+
         spinneranke1.setAdapter(adapter1);
         spinneranke2.setAdapter(adapter2);
         spinneranke3.setAdapter(adapter3);
+        spinneranke4.setAdapter(adapter4);
 
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 
     }
@@ -74,6 +83,7 @@ public class U_03 extends AppCompatActivity {
         Spinner spinneranke1 = (Spinner) findViewById(R.id.spinneranke1);
         Spinner spinneranke2 = (Spinner) findViewById(R.id.spinneranke2);
         Spinner spinneranke3 = (Spinner) findViewById(R.id.spinneranke3);
+        Spinner spinneranke4 = (Spinner) findViewById(R.id.spinneranke4);
 
 
 
@@ -84,7 +94,8 @@ public class U_03 extends AppCompatActivity {
             String anke1 = spinneranke1.getSelectedItem().toString();
             String anke2 = spinneranke2.getSelectedItem().toString();
             String anke3 = spinneranke3.getSelectedItem().toString();
-            dbm.usertouroku(sqlDB, Weight, anke1, anke2, anke3);
+            String anke4 = spinneranke4.getSelectedItem().toString();
+            dbm.usertouroku(sqlDB, Weight, anke1, anke2, anke3, anke4);
             Intent intent = new Intent(U_03.this,U_08.class);
             startActivity(intent);
 
