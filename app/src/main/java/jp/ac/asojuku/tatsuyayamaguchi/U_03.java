@@ -27,13 +27,13 @@ public class U_03 extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        EditText editTextweight = (EditText) findViewById(R.id.editTextweight);
+        EditText editTextweight = findViewById(R.id.editTextweight);
         final String weight = editTextweight.getText().toString();
         //int Weight = Integer.parseInt(weight);
 
         Button buttonInsert = (Button) findViewById(R.id.buttonInsert);
 
-        
+
 
         //buttonInsert.setOnClickListener(new View.OnClickListener() {
         //xxx
