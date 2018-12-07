@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import static android.widget.Toast.*;
 
 
 public class U_06 extends AppCompatActivity {
@@ -33,23 +36,28 @@ public class U_06 extends AppCompatActivity {
         EditText editTextTaijuHenko = findViewById(R.id.editTextTaijuHenko);
          SQLiteCursor cursor = dbm.selectweight(sqlDB);
          cursor.moveToFirst();
-         editTextTaijuHenko.setText(cursor.getString(3));
+         editTextTaijuHenko.setText(cursor.getString(0));
          //[];
 
          EditText editTextAnke1Henko = findViewById(R.id.editTextAnke1Henko);
          SQLiteCursor cursor1 = dbm.selectAnke1(sqlDB);
          cursor1.moveToFirst();
-         editTextAnke1Henko.setText(cursor.getString(5));
+         editTextAnke1Henko.setText(cursor1.getString(0));
 
          EditText editTextAnke2Henko = findViewById(R.id.editTextAnke2Henko);
          SQLiteCursor cursor2 = dbm.selectAnke2(sqlDB);
          cursor2.moveToFirst();
-         editTextAnke2Henko.setText(cursor.getString(6));
+         editTextAnke2Henko.setText(cursor2.getString(0));
 
          EditText editTextAnke3Henko = findViewById(R.id.editTextAnke3Henko);
          SQLiteCursor cursor3 = dbm.selectAnke3(sqlDB);
          cursor3.moveToFirst();
-         editTextAnke3Henko.setText(cursor.getString(7));
+         editTextAnke3Henko.setText(cursor3.getString(0));
+
+        EditText editTextAnke4Henko = findViewById(R.id.editTextAnke4Henko);
+        SQLiteCursor cursor4 = dbm.selectAnke4(sqlDB);
+        cursor4.moveToFirst();
+        editTextAnke4Henko.setText(cursor4.getString(0));
 
      }
 
@@ -68,13 +76,18 @@ public class U_06 extends AppCompatActivity {
         EditText editTextAnke3Henko = findViewById(R.id.editTextAnke3Henko);
         String anke3 = editTextAnke3Henko.getText().toString();
 
-        dbm.userupdate(sqlDB, Weight, anke1, anke2, anke3);
+        EditText editTextAnke4Henko = findViewById(R.id.editTextAnke4Henko);
+        String anke4 = editTextAnke4Henko.getText().toString();
+
+        dbm.userupdate(sqlDB, Weight, anke1, anke2, anke3, anke4);
+
+        Toast.makeText(this, "登録が完了しました。", Toast.LENGTH_SHORT).show();
 
 
         //if (weight != null &&weight.length() >0) {
         //  Integer Weight = Integer.parseInt(weight);
-        Intent intent = new Intent(U_06.this, U_06.class);
-        startActivity(intent);
+        //Intent intent = new Intent(U_06.this, U_06.class);
+        //startActivity(intent);
     }
 }
 
